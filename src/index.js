@@ -1,4 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 
-ReactDOM.render( < div > HOLA < /div>, document.getElementById('root'));
+import "./style.css";
+
+import Menu from "./components/NavBar";
+
+ReactDOM.render(
+  <div className="cero">
+    <Menu />
+  </div>,
+  document.getElementById("root")
+);
