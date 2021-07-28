@@ -45,6 +45,26 @@ const estilo = {
     fontSize: "16px",
     paddingLeft: "4px",
   },
+  carrito: {
+    width: "25px",
+  },
+  dropdown: {
+    textDecoration: "none",
+    color: "red",
+    border: "none",
+    backgroundColor: "#cccccc",
+    fontSize: "22px",
+  },
+  dropdownMenu: {
+    width: "95px",
+    backgroundColor: "#cccccc",
+    border: "1px solid #00000099",
+  },
+  dropdownItem: {
+    textDecoration: "none",
+    color: "red",
+    fontSize: "20px",
+  },
 };
 
 export { estilo };
