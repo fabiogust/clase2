@@ -11,9 +11,32 @@
 }
 
 .hover:hover {
-  color: black;
+  color: black !important;
+}
+.hoverCarrito:hover {
+  transform: scale(1.08);
 }
 
 .none {
   display: "none";
+}
+
+body {
+  display: flex;
+  justify-content: center;
+}
+
+#divGeneralItems {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 1000px;
+  background-color: rgb(245, 235, 215);
+}
+.divItem {
+  margin: 8px 0;
+  width: 300px;
+  border-radius: 7px;
+  border: 1px solid rgb(191, 194, 191);
+  background-color: rgb(246, 248, 246);
 }

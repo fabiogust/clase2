@@ -1,8 +1,4 @@
 const estilo = {
-  divGeneral: {
-    display: "flex",
-    justifyContent: "center",
-  },
   nav: {
     display: "flex",
     justifyContent: "space-between",
@@ -10,8 +6,8 @@ const estilo = {
     fontSize: 25,
     width: 1000,
     backgroundColor: "#cccccc",
-    paddingLeft: "15px",
-    paddingRight: "15px",
+    //paddingLeft: "15px",
+    //paddingRight: "15px",
   },
   ul: {
     display: "flex",
@@ -30,6 +26,7 @@ const estilo = {
     lineHeight: "0em",
     marginTop: "0",
     marginBottom: "0",
+    paddingLeft: 15,
     //background: "#ffffff",
   },
   logoArriba: {

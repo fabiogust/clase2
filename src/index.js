@@ -3,11 +3,11 @@ import ReactDOM from "react-dom";
 
 import "./style.css";
 
-import Menu from "./components/NavBar";
+import App from "./components/App";
 
 ReactDOM.render(
   <div className="cero">
-    <Menu />
+    <App />
   </div>,
   document.getElementById("root")
 );

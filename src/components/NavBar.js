@@ -4,13 +4,13 @@ import { estilo } from ".././estilos";
 
 import ".././style.css";
 
-import carrito from "../img/carrito2.svg";
-
 import { Dropdown, NavDropdown } from "react-bootstrap";
 
-export default function Menu() {
+import Carrito from "./Carrito";
+
+export default function NavBar() {
   return (
-    <div style={estilo.divGeneral}>
+    <div>
       <nav style={estilo.nav}>
         <div style={estilo.divLogo}>
           <div style={estilo.logoArriba}>MEGA TIENDA</div>
@@ -26,7 +26,7 @@ export default function Menu() {
           </li>
           <li>
             <Dropdown>
-              <Dropdown.Toggle style={estilo.dropdown}>
+              <Dropdown.Toggle className="hover" style={estilo.dropdown}>
                 Productos
               </Dropdown.Toggle>
 
@@ -45,10 +45,8 @@ export default function Menu() {
               </Dropdown.Menu>
             </Dropdown>
           </li>
-          <li>Ofertas</li>
-          <li>
-            <img src={carrito} style={estilo.carrito} alt="Carrito" />
-          </li>
+          <li className="hover">Ofertas</li>
+          <Carrito className="hover2" />
         </ul>
       </nav>
     </div>
