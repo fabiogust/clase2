@@ -15,7 +15,6 @@ function ItemCount({ stock, valorInicial, onAgregar }) {
       >
         -
       </button>
-
       <span className="span">{value}</span>
       <button
         className="boton"

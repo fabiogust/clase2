@@ -1,19 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 
 import ".././style.css";
 
+import Item from "./Item";
+
 import ItemCount from "./ItemCount";
 
-let valorInicial = 1;
-let stockProducto = 5;
+function ItemListContainer({ imagen, nombre, precio, stock }) {
+  const [producto, setProducto] = useState({ imagen, nombre, precio, stock });
 
-function ItemListContainer() {
   return (
     <div className="divItem">
-      <div>img</div>
-      <div>detalle</div>
-      <div>precio</div>
-      <ItemCount valorInicial={valorInicial} stock={stockProducto} />
+      <Item
+        img={producto.imagen}
+        nombre={producto.nombre}
+        precio={producto.precio}
+      />
+      <ItemCount valorInicial={1} stock={producto.stock} />
     </div>
   );
 }

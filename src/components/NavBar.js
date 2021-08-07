@@ -13,8 +13,8 @@ export default function NavBar() {
     <div>
       <nav style={estilo.nav}>
         <div style={estilo.divLogo}>
-          <div style={estilo.logoArriba}>MEGA TIENDA</div>
-          <div style={estilo.logoAbajo}>PEPE</div>
+          <div style={estilo.logoArriba}>THE CLOSET</div>
+          <div style={estilo.logoAbajo}>Indumentaria</div>
         </div>
         <ul style={estilo.ul}>
           <li>
@@ -46,7 +46,7 @@ export default function NavBar() {
             </Dropdown>
           </li>
           <li className="hover">Ofertas</li>
-          <Carrito className="hover2" />
+          <Carrito />
         </ul>
       </nav>
     </div>

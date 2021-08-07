@@ -36,15 +36,24 @@ body {
 .divItem {
   margin: 8px 0;
   width: 300px;
-  border-radius: 7px;
+
   border: 1px solid rgb(191, 194, 191);
   background-color: rgb(246, 248, 246);
 }
 
 .boton {
   width: 30px;
-  margin: 4px;
+  margin: 9px;
 }
 .span {
   margin: 4px;
+}
+
+.divImg {
+  overflow: hidden;
+  height: 326px;
+}
+
+.margen {
+  margin: 5px 5px 5px 9px;
 }

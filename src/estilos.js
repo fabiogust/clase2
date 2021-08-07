@@ -36,7 +36,7 @@ const estilo = {
   logoAbajo: {
     color: "green",
     marginTop: "24px",
-    marginLeft: "100px",
+    marginLeft: "50px",
   },
   inputBuscar: {
     fontSize: "16px",
