@@ -12,30 +12,20 @@ function ContainerItems() {
   useEffect(() => {
     const tarea = new Promise((resolve, reject) => {
       setTimeout(() => {
-        setProductos(stockProductos);
+        resolve(stockProductos);
+        reject("Error, algo no anda bien!");
       }, 2000);
-
-      resolve("Exito en la operacion!");
-      reject("Error, algo no anda bien!");
     });
     tarea.then(
-      (result) => console.log(result),
+      (result) => setProductos(result),
       (err) => console.log(err)
     );
-  }, [productos]);
+  });
 
   return (
     <div id="divGeneralItems">
-      {productos.map((i) => {
-        return (
-          <ItemListContainer
-            key={i.id}
-            imagen={i.imagen}
-            nombre={i.nombre}
-            precio={i.precio}
-            stock={i.stock}
-          />
-        );
+      {productos.map((producto) => {
+        return <ItemListContainer key={producto.id} producto={producto} />;
       })}
     </div>
   );
