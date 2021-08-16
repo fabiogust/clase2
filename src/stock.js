@@ -13,6 +13,271 @@ import CONJUNTOSPORT from "./img/productos/mix23.jpg";
 import CAMISAS from "./img/productos/mix50.jpg";
 import COLALESS from "./img/productos/mix62.jpg";
 
+let remeras = [
+  {
+    id: "ME10",
+    nombre: "MUSCULOSA ENCAJE",
+    precio: 1000,
+    talle: "único",
+    color: "blanco | rosa.",
+    cantidad: 1,
+    imagen: MUSCULOSAENCAJE,
+    stock: 2,
+  },
+  {
+    id: "RM11",
+    nombre: "REMERA MODAL",
+    precio: 1120,
+    talle: "único",
+    color: "lila | rosa",
+    cantidad: 1,
+    imagen: REMERAMODAL,
+    stock: 7,
+  },
+  {
+    id: "R11",
+    nombre: "REMERA",
+    precio: 1150,
+    talle: "único",
+    color: "marfil",
+    cantidad: 1,
+    imagen: REMERA,
+    stock: 5,
+  },
+  {
+    id: "C18",
+    nombre: "CAMISA",
+    precio: 1830,
+    talle: "38 al 40",
+    color: "plomo",
+    cantidad: 1,
+    imagen: CAMISA,
+    stock: 5,
+  },
+
+  {
+    id: "C17",
+    nombre: "CAMISAS",
+    precio: 1700,
+    talle: "M",
+    color: "ocre | marfil",
+    cantidad: 1,
+    imagen: CAMISAS,
+    stock: 9,
+  },
+];
+let pantalones = [
+  {
+    id: "JTM18",
+    nombre: "JEANS TIRO MEDIO",
+    precio: 1850,
+    talle: "36 al 42",
+    color: "clásico",
+    cantidad: 1,
+    imagen: JEANSTIROMEDIO,
+    stock: 9,
+  },
+  {
+    id: "JR19",
+    nombre: "JEANS ROLLER",
+    precio: 1950,
+    talle: "36 al 42",
+    color: "negro",
+    cantidad: 1,
+    imagen: JEANSROLLER,
+    stock: 5,
+  },
+  {
+    id: "SM15",
+    nombre: "SHORT MOM",
+    precio: 1550,
+    talle: "único",
+    color: "aqua",
+    cantidad: 1,
+    imagen: SHORTMOM,
+    stock: 8,
+  },
+  {
+    id: "P14",
+    nombre: "POLLERA",
+    precio: 1490,
+    talle: "38",
+    color: "rosa | blanco",
+    cantidad: 1,
+    imagen: POLLERA,
+    stock: 10,
+  },
+
+  {
+    id: "JE22",
+    nombre: "JEANS ESTATICO",
+    precio: 2200,
+    talle: "36 al 42",
+    color: "claro",
+    cantidad: 1,
+    imagen: JEANSESTATICO,
+    stock: 2,
+  },
+];
+let lenceria = [
+  {
+    id: "CL85",
+    nombre: "COLA LESS",
+    precio: 850,
+    talle: "M",
+    color: "blanco",
+    cantidad: 1,
+    imagen: COLALESS,
+    stock: 3,
+  },
+  {
+    id: "CS25",
+    nombre: "CONJUNTO SPORT",
+    precio: 2560,
+    talle: "M",
+    color: "gris",
+    cantidad: 1,
+    imagen: CONJUNTOSPORT,
+    stock: 6,
+  },
+];
+
+export { remeras, pantalones, lenceria };
+
+/* const stockProductos = [
+  (remeras = [
+    {
+      id: "ME10",
+      nombre: "MUSCULOSA ENCAJE",
+      precio: 1000,
+      talle: "único",
+      color: "blanco | rosa.",
+      cantidad: 1,
+      imagen: MUSCULOSAENCAJE,
+      stock: 2,
+    },
+    {
+      id: "RM11",
+      nombre: "REMERA MODAL",
+      precio: 1120,
+      talle: "único",
+      color: "lila | rosa",
+      cantidad: 1,
+      imagen: REMERAMODAL,
+      stock: 7,
+    },
+    {
+      id: "R11",
+      nombre: "REMERA",
+      precio: 1150,
+      talle: "único",
+      color: "marfil",
+      cantidad: 1,
+      imagen: REMERA,
+      stock: 5,
+    },
+    {
+      id: "C18",
+      nombre: "CAMISA",
+      precio: 1830,
+      talle: "38 al 40",
+      color: "plomo",
+      cantidad: 1,
+      imagen: CAMISA,
+      stock: 5,
+    },
+
+    {
+      id: "C17",
+      nombre: "CAMISAS",
+      precio: 1700,
+      talle: "M",
+      color: "ocre | marfil",
+      cantidad: 1,
+      imagen: CAMISAS,
+      stock: 9,
+    },
+  ]),
+  (pantalones = [
+    {
+      id: "JTM18",
+      nombre: "JEANS TIRO MEDIO",
+      precio: 1850,
+      talle: "36 al 42",
+      color: "clásico",
+      cantidad: 1,
+      imagen: JEANSTIROMEDIO,
+      stock: 9,
+    },
+    {
+      id: "JR19",
+      nombre: "JEANS ROLLER",
+      precio: 1950,
+      talle: "36 al 42",
+      color: "negro",
+      cantidad: 1,
+      imagen: JEANSROLLER,
+      stock: 5,
+    },
+    {
+      id: "SM15",
+      nombre: "SHORT MOM",
+      precio: 1550,
+      talle: "único",
+      color: "aqua",
+      cantidad: 1,
+      imagen: SHORTMOM,
+      stock: 8,
+    },
+    {
+      id: "P14",
+      nombre: "POLLERA",
+      precio: 1490,
+      talle: "38",
+      color: "rosa | blanco",
+      cantidad: 1,
+      imagen: POLLERA,
+      stock: 10,
+    },
+
+    {
+      id: "JE22",
+      nombre: "JEANS ESTATICO",
+      precio: 2200,
+      talle: "36 al 42",
+      color: "claro",
+      cantidad: 1,
+      imagen: JEANSESTATICO,
+      stock: 2,
+    },
+  ]),
+  (lenceria = [
+    {
+      id: "CL85",
+      nombre: "COLA LESS",
+      precio: 850,
+      talle: "M",
+      color: "blanco",
+      cantidad: 1,
+      imagen: COLALESS,
+      stock: 3,
+    },
+    {
+      id: "CS25",
+      nombre: "CONJUNTO SPORT",
+      precio: 2560,
+      talle: "M",
+      color: "gris",
+      cantidad: 1,
+      imagen: CONJUNTOSPORT,
+      stock: 6,
+    },
+  ]),
+]; */
+
+//export default stockProductos;
+
+/*
 const stockProductos = [
   {
     id: "JTM18",
@@ -137,5 +402,4 @@ const stockProductos = [
     stock: 3,
   },
 ];
-
-export default stockProductos;
+*/

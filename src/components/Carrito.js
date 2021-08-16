@@ -4,12 +4,14 @@ import ".././style.css";
 
 import carrito from ".././img/carrito2.svg";
 
-import { estilo } from ".././estilos";
+//import { estilo } from ".././estilos";
+
+import ".././style.css";
 
 function Carrito() {
   return (
     <li className="hoverCarrito">
-      <img src={carrito} style={estilo.carrito} alt="Carrito" />
+      <img src={carrito} className="carrito" alt="Carrito" />
     </li>
   );
 }

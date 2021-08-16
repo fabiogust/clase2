@@ -1,8 +1,15 @@
 import React from "react";
 
+//import { useParams } from "react-router-dom";
+
+import { NavLink } from "react-router-dom";
+
 import ".././style.css";
 
 function ItemDetail({ detalle, onSalir }) {
+  //  const { params } = useParams();
+  //  console.log("params" + params);
+
   return (
     <div className="itemDetailDiv">
       <div className="itemDetail">
@@ -14,9 +21,11 @@ function ItemDetail({ detalle, onSalir }) {
           <div className="margen">Talle: {detalle.talle}</div>
           <div className="margen">Color: {detalle.color}</div>
           <div className="margen ">{"$ " + detalle.precio}</div>
-          <button className="margen itemDetailBotonSalir" onClick={onSalir}>
-            salir
-          </button>
+          <NavLink to={"/"} activeClassName="" className="">
+            <button className="margen itemDetailBotonSalir" onClick={onSalir}>
+              salir
+            </button>
+          </NavLink>
         </div>
       </div>
     </div>
@@ -24,3 +33,5 @@ function ItemDetail({ detalle, onSalir }) {
 }
 
 export default ItemDetail;
+
+//<NavLink to={} activeClassName="" className="" ></NavLink>

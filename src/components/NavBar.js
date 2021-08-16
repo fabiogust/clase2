@@ -1,6 +1,6 @@
 import React from "react";
 
-import { estilo } from ".././estilos";
+//import { estilo } from ".././estilos";
 
 import ".././style.css";
 
@@ -8,47 +8,94 @@ import { Dropdown, NavDropdown } from "react-bootstrap";
 
 import Carrito from "./Carrito";
 
+import Logo from "./Logo";
+
+import Buscador from "./Buscador";
+
+import { NavLink } from "react-router-dom";
+
 export default function NavBar() {
   return (
     <div>
-      <nav style={estilo.nav}>
-        <div style={estilo.divLogo}>
-          <div style={estilo.logoArriba}>THE CLOSET</div>
-          <div style={estilo.logoAbajo}>Indumentaria</div>
-        </div>
-        <ul style={estilo.ul}>
+      <nav className="nav">
+        <NavLink to="/" activeClassName="activeNavLink" className="logoNavLink">
+          <Logo />
+        </NavLink>
+
+        <ul className="ul">
           <li>
-            <input
-              style={estilo.inputBuscar}
-              type="text"
-              placeholder="Buscar!"
-            />
+            <NavLink
+              to="/buscador"
+              activeClassName="activeNavLink"
+              className=""
+            >
+              <Buscador />
+            </NavLink>
           </li>
           <li>
             <Dropdown>
-              <Dropdown.Toggle className="hover" style={estilo.dropdown}>
-                Productos
+              <Dropdown.Toggle className="hover" className="dropdown">
+                Categorias
               </Dropdown.Toggle>
 
-              <Dropdown.Menu style={estilo.dropdownMenu}>
-                <Dropdown.Item href="#/action-1" style={estilo.dropdownItem}>
-                  item1
-                </Dropdown.Item>
-                <NavDropdown />
-                <Dropdown.Item href="#/action-2" style={estilo.dropdownItem}>
-                  item2
-                </Dropdown.Item>
-                <NavDropdown />
-                <Dropdown.Item href="#/action-3" style={estilo.dropdownItem}>
-                  item3
-                </Dropdown.Item>
+              <Dropdown.Menu className="dropdownMenu">
+                <NavLink
+                  to="/category/remeras"
+                  activeClassName="activeNavLink"
+                  className=""
+                  value="remeras"
+                >
+                  <Dropdown.Item
+                    href="#/action-1"
+                    className="dropdownItem"
+                    value="remeras"
+                  >
+                    Remeras
+                  </Dropdown.Item>
+                </NavLink>
+
+                <NavLink
+                  to="/category/pantalones"
+                  activeClassName="activeNavLink"
+                  className=""
+                  value="pantalones"
+                >
+                  <NavDropdown />
+                  <Dropdown.Item href="#/action-2" className="dropdownItem">
+                    Pantalones
+                  </Dropdown.Item>
+                </NavLink>
+
+                <NavLink
+                  to="/category/lenceria"
+                  activeClassName="activeNavLink"
+                  className=""
+                  value="lenceria"
+                >
+                  <NavDropdown />
+                  <Dropdown.Item href="#/action-3" className="dropdownItem">
+                    Lenceria
+                  </Dropdown.Item>
+                </NavLink>
               </Dropdown.Menu>
             </Dropdown>
           </li>
-          <li className="hover">Ofertas</li>
-          <Carrito />
+
+          <NavLink
+            to="/ofertas"
+            activeClassName="activeNavLink"
+            className="ofertas"
+          >
+            <li className="hover">Ofertas</li>
+          </NavLink>
+
+          <NavLink to="/carrito" activeClassName="activeNavLink" className="">
+            <Carrito />
+          </NavLink>
         </ul>
       </nav>
     </div>
   );
 }
+
+//<NavLink to={} activeClassName="" className="" ></NavLink>

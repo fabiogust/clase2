@@ -35,6 +35,7 @@ body {
   justify-content: space-evenly;
   width: 1000px;
   background-color: rgb(245, 235, 215);
+  min-height: 71vh;
 }
 .divItem {
   margin: 8px 0;
@@ -89,4 +90,166 @@ body {
 
 .displayNone {
   display: none;
+}
+
+/*------------------------*/
+
+.activeNavLink {
+  transform: rotate(1.03) !important ;
+}
+
+.logoNavLink {
+  text-decoration: none;
+}
+
+/*------------------------*/
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  color: red;
+  font-size: 25px;
+  width: 1000px;
+  background-color: #cccccc;
+}
+
+.ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  list-style-type: none;
+  margin: 5px;
+  width: 800px;
+}
+
+.divLogo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 80px;
+  line-height: 0em;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 15px;
+}
+
+.logoArriba {
+  text-decoration: underline;
+  color: green;
+}
+
+.logoAbajo {
+  color: green;
+  margin-top: 24px;
+  margin-left: 50px;
+}
+
+.inputBuscar {
+  font-size: 16px;
+  padding-left: 4px;
+}
+
+.carrito {
+  width: 25px;
+}
+
+.dropdown {
+  text-decoration: none;
+  color: red;
+  border: none;
+  background-color: #cccccc;
+  font-size: 22px;
+}
+
+.dropdownMenu {
+  width: 95px;
+  background-color: #cccccc;
+  border: 1px solid #00000099;
+}
+
+.dropdownItem {
+  text-decoration: none;
+  color: red;
+  font-size: 20px;
+}
+.ofertas {
+  text-decoration: none;
+  color: red;
+}
+
+/*------footer------*/
+
+footer {
+  grid-area: footer;
+  bottom: 0;
+  right: 0;
+  background: #d4d0d0;
+  width: 100%;
+  margin-left: 0vw;
+  margin-top: 0vh;
+  display: flex;
+  border-top: 1px solid #bdb8b8;
+}
+
+footer .datosFooter {
+  width: 50%;
+  margin-top: 2.1em;
+  padding-left: 5%;
+  margin-right: 5px;
+  margin-bottom: 1.5em;
+  font-family: italic;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+footer .datosFooter p span {
+  font-weight: 650;
+}
+
+footer .pagAmigas {
+  margin-right: 5%;
+  margin-top: 2.1em;
+  margin-bottom: 1.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: space-evenly;
+  justify-content: center;
+  width: 50%;
+}
+
+footer .pagAmigas .divP {
+  display: flex;
+  justify-content: center;
+}
+
+footer .pagAmigas .divP p {
+  font-size: 20px;
+  font-style: italic;
+  font-family: italic;
+  margin-bottom: 1em;
+}
+
+footer .pagAmigas .footer-span {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+footer .pagAmigas .footer-span .paginasAmigas {
+  display: inline-block;
+  transition: all 0.2s;
+  margin: 0 6px;
+}
+
+footer .pagAmigas .footer-span .paginasAmigas .tam {
+  width: 100%;
+  max-width: 150px;
+  border-radius: 50%;
+  transition: all 0.4s;
+}
+
+footer .pagAmigas .footer-span .paginasAmigas .tam:hover {
+  transform: scale(1.03);
+  box-shadow: 0 15px 18px 5px #00000099;
 }

@@ -1,18 +1,21 @@
 import React from "react";
 
-//import "./style.css";
+import Router from "./Router";
 
-import NavBar from "./NavBar";
+import Footer from "./Footer";
 
-import ContainerItems from "./ContainerItems";
+//import ContainerItems from "./ContainerItems";
 
 function App() {
   return (
     <div>
-      <NavBar />
-      <ContainerItems />
+      <Router />
+
+      <Footer />
     </div>
   );
 }
 
 export default App;
+
+//<ContainerItems />
