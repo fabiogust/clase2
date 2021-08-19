@@ -2,29 +2,31 @@ import React, { useState } from "react";
 
 import ".././style.css";
 
-function ItemCount({ stock, valorInicial, onAgregar }) {
-  const [value, setValue] = useState(valorInicial);
+function ItemCount({ stock, valorInicial, onAdd }) {
+  const [cantidad, setCantidad] = useState(valorInicial);
 
   return (
     <div>
       <button
         className="boton"
         onClick={() => {
-          value <= 1 ? setValue(1) : setValue(value - 1);
+          cantidad <= 1 ? setCantidad(1) : setCantidad(cantidad - 1);
         }}
       >
         -
       </button>
-      <span className="span">{value}</span>
+      <span className="span">{cantidad}</span>
       <button
         className="boton"
         onClick={() => {
-          value >= stock ? setValue(stock) : setValue(value + 1);
+          cantidad >= stock ? setCantidad(stock) : setCantidad(cantidad + 1);
         }}
       >
         +
       </button>
-      <button onClick={onAgregar}>Agregar al carrito</button>
+      <button onClick={onAdd} value={cantidad}>
+        Agregar al carrito
+      </button>
     </div>
   );
 }
