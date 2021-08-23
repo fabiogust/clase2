@@ -40,7 +40,7 @@ function ContainerItems() {
 
         // resolve(dataProductos);
         reject("Error, algo no anda bien!");
-      }, 1000);
+      }, 300);
     });
     tarea.then(
       (result) => setProductos(result),

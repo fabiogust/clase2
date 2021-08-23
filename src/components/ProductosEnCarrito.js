@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
+
+import { CartContext } from "../context/CartContext";
 
 function ProductosEnCarrito() {
-  return (
-    <div>
-      <h1>Aca van los productos seleccionados</h1>
-    </div>
-  );
+  const { mostrarProductos } = useContext(CartContext);
+
+  return <div>{mostrarProductos()}</div>;
 }
 
 export default ProductosEnCarrito;

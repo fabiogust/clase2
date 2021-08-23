@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
@@ -13,6 +13,9 @@ import ProductosEnCarrito from "./ProductosEnCarrito";
 import ResultadosBusqueda from "./ResultadosBusqueda";
 
 import Ofertas from "./Ofertas";
+
+//import { CartContext } from "../context/CartContext";
+//const contextoCarrito = useContext(CartContext);
 
 function Router() {
   return (

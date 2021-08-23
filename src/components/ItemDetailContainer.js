@@ -33,7 +33,7 @@ function ItemDetailContainer({ producto }) {
       setTimeout(() => {
         resolve(<ItemDetail detalle={producto} onSalir={cerrarDetalle} />);
         reject("Error, en el detalle!");
-      }, 1000);
+      }, 300);
     });
     tareaDetail.then(
       (result) => setDetalle(result),

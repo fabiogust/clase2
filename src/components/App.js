@@ -1,16 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Router from "./Router";
 
 import Footer from "./Footer";
 
-//import ContainerItems from "./ContainerItems";
+import { CartProvider } from "../context/CartContext";
 
 function App() {
   return (
     <div>
-      <Router />
-
+      <CartProvider>
+        <Router />
+      </CartProvider>
       <Footer />
     </div>
   );

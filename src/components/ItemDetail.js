@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
 //import { useParams } from "react-router-dom";
 
@@ -8,14 +8,21 @@ import ItemCount from "./ItemCount";
 
 import ".././style.css";
 
+import { CartContext } from "../context/CartContext";
+
 function ItemDetail({ detalle, onSalir }) {
+  const { agregarProducto } = useContext(CartContext);
+
   const [cantidadAgregada, setCantidadAgregada] = useState(0);
   //  const { params } = useParams();
   //  console.log("params" + params);
   const agregar = (e) => {
     setCantidadAgregada(e.target.value);
+
+    agregarProducto(detalle, e.target.value);
+
+    //console.log("detalle, e.target.value", detalle + " | " + e.target.value);
   };
-  console.log("cantidadAgregada", cantidadAgregada);
 
   const compra = () => {
     return (
