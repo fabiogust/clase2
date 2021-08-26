@@ -1,5 +1,6 @@
 import { Children, useState, useEffect } from "react";
 import { createContext } from "react";
+import { NavLink } from "react-router-dom";
 
 export const CartContext = createContext();
 
@@ -13,68 +14,80 @@ const CartProvider = ({ children }) => {
 
   const [productos, setProductos] = useState(prod);
 
-  console.log("productos", productos);
+  const carritoLength = () => {
+    return (
+      productos.length != 0 && (
+        <span className="carritoLength">
+          {productos.reduce(
+            (acumulador, iterator) => (acumulador += iterator.cantidad),
+            0
+          )}
+        </span>
+      )
+    );
+  };
+
+  const valorTotal = () => {
+    let valorTotalProductosEnCarrito = productos.reduce(
+      (acumulador, iterador) =>
+        acumulador + iterador.cantidad * iterador.detalle.precio,
+      0
+    );
+    return valorTotalProductosEnCarrito;
+  };
 
   const agregarProducto = (detalle, cantidad) => {
-    console.log("productos1", productos);
     if (recuperarLoGuardadoEnLocalStorage() != null) {
       let prodf = recuperarLoGuardadoEnLocalStorage();
       setProductos(prodf);
-      console.log("productosaaA", productos);
     }
 
     if (productos.length != 0) {
-      console.log("productos2", productos);
-
       for (let iterator of productos) {
-        console.log(
-          "iterator.detalle.id",
-          iterator.detalle.id + " | " + detalle.id
-        );
         if (iterator.detalle.id === detalle.id) {
           productos[productos.indexOf(iterator)].cantidad =
             Number(iterator.cantidad) + Number(cantidad);
+          if (
+            productos[productos.indexOf(iterator)].cantidad >
+            productos[productos.indexOf(iterator)].detalle.stock
+          ) {
+            productos[productos.indexOf(iterator)].cantidad =
+              productos[productos.indexOf(iterator)].detalle.stock;
+          }
           setProductos(productos);
           actualizarGuardadoEnStorage(productos);
-          console.log("productos3", productos);
           break;
         } else {
           nuevoItem(detalle, cantidad);
-          console.log("productos4", productos);
         }
       }
     } else {
       nuevoItem(detalle, cantidad);
-      console.log("productos5", productos);
     }
   };
 
-  //------------funciones del context---------------------------------------------------
-
-  const [c, setC] = useState(1);
+  //funciones del context |Aclaracion al useState c lo utilizo solo para hacer render de la cantidad, es random porque lo usan todos los item ----
+  const [c, setC] = useState("random");
 
   function removeItem(p) {
-    // setC(p.cantidad);
-
     productos[productos.indexOf(p)].cantidad = Number(p.cantidad) - 1;
-    setC(productos[productos.indexOf(p)].cantidad);
     setProductos(productos);
-    actualizarGuardadoEnStorage(productos);
 
-    if (productos[productos.indexOf(p)].cantidad < 1) {
+    if (productos[productos.indexOf(p)].cantidad < 0) {
       productos.splice(productos.indexOf(p), 1);
       setProductos(productos);
       actualizarGuardadoEnStorage(productos);
     }
+    setC(Math.random());
+    actualizarGuardadoEnStorage(productos);
   }
 
   function masUnItem(p) {
     productos[productos.indexOf(p)].cantidad =
       p.cantidad >= p.detalle.stock ? p.detalle.stock : Number(p.cantidad) + 1;
-
-    setC(productos[productos.indexOf(p)].cantidad);
     setProductos(productos);
     actualizarGuardadoEnStorage(productos);
+    setC(Math.random());
   }
 
   function removeTodo() {
@@ -83,10 +96,12 @@ const CartProvider = ({ children }) => {
   }
 
   function nuevoItem(detalle, cantidad) {
-    const nuevoProducto = [...productos, { detalle, cantidad: cantidad }];
+    const nuevoProducto = [
+      ...productos,
+      { detalle, cantidad: Number(cantidad) },
+    ];
     setProductos(nuevoProducto);
     actualizarGuardadoEnStorage(nuevoProducto);
-    console.log("productos6", productos);
   }
 
   function recuperarLoGuardadoEnLocalStorage() {
@@ -99,16 +114,22 @@ const CartProvider = ({ children }) => {
   }
 
   //------------------------------------------------------------------------
+
   const mostrarProductos = () => {
     return (
       <div>
         <div>
           {productos.map((p) => {
-            console.log("hola hola");
             return (
-              <div key={p.detalle.id}>
-                producto: {p.detalle.nombre} | cantidad:{p.cantidad}{" "}
-                <button onClick={() => removeItem(p)}> - </button>
+              <div className="itemEnCarrito" key={p.detalle.id}>
+                <img src={p.detalle.imagen} className="imgEnCarrito" />
+                {"  "}
+                {p.detalle.nombre}
+                {p.cantidad == 0 ? " " : " | " + p.cantidad + " X"}
+                {p.cantidad == 0 ? " " : " $ " + p.detalle.precio * p.cantidad}
+                <button onClick={() => removeItem(p)}>
+                  {p.cantidad == 0 ? "Eliminar" : " - "}
+                </button>
                 <button onClick={() => masUnItem(p)}> + </button>
               </div>
             );
@@ -117,14 +138,23 @@ const CartProvider = ({ children }) => {
         {productos.length == 0 ? (
           sinProductos()
         ) : (
-          <button onClick={removeTodo}>borrar todo</button>
+          <>
+            <span>{" Total: $ " + valorTotal()}</span>
+            <button onClick={removeTodo}>borrar todo</button>
+          </>
         )}
       </div>
     );
   };
-  //<button onClick={removeTodo}>borrar todo</button>
   function sinProductos() {
-    return <h2>No tiene productos en el carrito</h2>;
+    return (
+      <div>
+        <h2>No tiene productos en el carrito</h2>
+        <NavLink to="/" activeClassName="" className="">
+          <h4>Vea los productos disponibles</h4>
+        </NavLink>
+      </div>
+    );
   }
 
   return (
@@ -132,6 +162,7 @@ const CartProvider = ({ children }) => {
       value={{
         agregarProducto: agregarProducto,
         mostrarProductos: mostrarProductos,
+        carritoLength: carritoLength,
       }}
     >
       {children}

@@ -10,9 +10,10 @@ function ItemListContainer({ producto }) {
   return (
     <div className="divItem">
       <Item producto={producto} />
-      <ItemCount valorInicial={1} stock={producto.stock} />
     </div>
   );
 }
 
 export default ItemListContainer;
+
+/* <ItemCount valorInicial={1} stock={producto.stock} /> */

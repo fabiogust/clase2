@@ -36,11 +36,11 @@ body {
   width: 1000px;
   background-color: rgb(245, 235, 215);
   min-height: 71vh;
+  align-items: flex-start;
 }
 .divItem {
   margin: 8px 0;
   width: 300px;
-
   border: 1px solid rgb(191, 194, 191);
   background-color: rgb(246, 248, 246);
 }
@@ -150,27 +150,141 @@ body {
 }
 
 .carrito {
-  width: 25px;
+  width: 31px;
+  text-align: center;
+}
+.liCarrito {
+  width: 47px;
+}
+
+/* .vistaRapida {
+   display: none; 
+   display: block; 
+    position: absolute;
+  top: 37px;
+  right: -45px; 
+   font-size: 16px;
+  background-color: antiquewhite;
+  width: 340px; 
+} */
+.ulVistaRapida {
+  position: relative;
+}
+.liVistaRapida {
+  display: none;
+}
+.ulVistaRapida:hover .liVistaRapida {
+  display: block;
+  position: absolute;
+  top: 37px;
+  right: -45px;
+  font-size: 16px;
+  background-color: antiquewhite;
+  width: 340px;
+}
+.liCard {
+  position: relative;
+  /* height: 47px; */
+  margin-bottom: -5px;
+}
+/* .liCard:hover .vistaRapida {
+  display: block !important;
+   position: absolute;
+  top: 37px;
+  right: -45px; 
+  font-size: 16px;
+  background-color: rgb(14, 8, 1);
+  width: 340px;
+} */
+/* .itemEnCarrito {
+} */
+/* .prodCompra {
+} */
+.prodEnCarritoDesdeRouter {
+  background-color: cadetblue;
+}
+.imgEnCarrito {
+  width: 60px;
+  display: inline-block;
+}
+
+/*---------------------------------------------------------------------------------------------------*/
+.carritoLength {
+  display: inline-block;
+  position: relative;
+  left: -21px;
+  font-size: 10px;
+  top: -19px;
+  color: rgb(90, 90, 90);
+  border: 2px solid rgb(90, 90, 90);
+  border-radius: 20%;
+  width: 12px;
+  height: 12px;
+  background-color: #d4d0d0;
+  text-align: center;
+  /* font-weight: 600; */
 }
 
 .dropdown {
   text-decoration: none;
   color: red;
   border: none;
-  background-color: #cccccc;
+  background-color: #cccccc !important;
   font-size: 22px;
 }
-
+#basic-nav-dropdown {
+  text-decoration: none !important;
+  color: red !important;
+  font-size: 25px !important;
+}
+#basic-nav-dropdown:hover {
+  /* transform: scale(1.08) !important; */
+  color: black !important;
+}
 .dropdownMenu {
   width: 95px;
   background-color: #cccccc;
   border: 1px solid #00000099;
+}
+.dropdown-menu {
+  background-color: #cccccc !important;
+  width: 110px !important;
 }
 
 .dropdownItem {
   text-decoration: none;
   color: red;
   font-size: 20px;
+  margin-left: 6px;
+  background-color: #cccccc;
+}
+.liSubUl {
+  position: relative;
+}
+.subUl {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  list-style-type: none;
+  color: red;
+  font-size: 25px;
+  position: absolute;
+  display: none;
+  background-color: #cccccc;
+  text-decoration: none;
+  width: 107px;
+}
+.liSubUl:hover .subUl {
+  display: block;
+}
+.subLi {
+  margin-left: 8px;
+  list-style-type: none;
+}
+.subLi a {
+  font-size: 20px;
+  color: red;
+  text-decoration: none;
 }
 .ofertas {
   text-decoration: none;

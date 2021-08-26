@@ -2,10 +2,10 @@ import React, { useContext } from "react";
 
 import { CartContext } from "../context/CartContext";
 
-function ProductosEnCarrito() {
+function ProductosEnCarrito({ clase }) {
   const { mostrarProductos } = useContext(CartContext);
 
-  return <div>{mostrarProductos()}</div>;
+  return <div className={clase}>{mostrarProductos()}</div>;
 }
 
 export default ProductosEnCarrito;

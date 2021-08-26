@@ -32,7 +32,9 @@ function Router() {
           <ContainerItems />
         </Route>
 
-        <Route path="/carrito" component={ProductosEnCarrito} />
+        <Route path="/carrito">
+          <ProductosEnCarrito clase="prodEnCarritoDesdeRouter" />
+        </Route>
 
         <Route path="/ofertas" component={Ofertas} />
 
