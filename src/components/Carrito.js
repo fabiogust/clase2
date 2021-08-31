@@ -14,7 +14,7 @@ import { CartContext } from "../context/CartContext";
 
 function Carrito() {
   const { carritoLength } = useContext(CartContext);
-  console.log("ssssssssssssssss", carritoLength());
+  // console.log("ssssssssssssssss", carritoLength());
   // const classe = "vistaRapida";
 
   return (

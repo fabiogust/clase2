@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink, useParams } from "react-router-dom";
 
 import ".././style.css";
 
@@ -14,9 +15,15 @@ function Item({ producto }) {
       <div className="margen">{nombre}</div>
       <div className="margen">{"$ " + precio}</div>
 
+      <NavLink to={`/item/${producto.id}`} activeClassName="" className="">
+        <button className="margen">ver detalle</button>
+      </NavLink>
+
       <ItemDetailContainer producto={producto} />
     </>
   );
 }
 
 export default Item;
+
+//onClick={mostrarDetalle}

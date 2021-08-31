@@ -122,15 +122,21 @@ const CartProvider = ({ children }) => {
           {productos.map((p) => {
             return (
               <div className="itemEnCarrito" key={p.detalle.id}>
-                <img src={p.detalle.imagen} className="imgEnCarrito" />
-                {"  "}
-                {p.detalle.nombre}
-                {p.cantidad == 0 ? " " : " | " + p.cantidad + " X"}
-                {p.cantidad == 0 ? " " : " $ " + p.detalle.precio * p.cantidad}
-                <button onClick={() => removeItem(p)}>
-                  {p.cantidad == 0 ? "Eliminar" : " - "}
-                </button>
-                <button onClick={() => masUnItem(p)}> + </button>
+                <div>
+                  <img src={p.detalle.imagen} className="imgEnCarrito" />
+                </div>
+                <div className="datoCarrito">
+                  <div className="datoCarrito">{p.detalle.nombre}</div>
+                  {p.cantidad == 0 ? " " : " $ " + p.detalle.precio}
+                  {p.cantidad == 0 ? " " : " X " + p.cantidad + " = "}
+                  {p.cantidad == 0
+                    ? " "
+                    : " $ " + p.detalle.precio * p.cantidad}
+                  <button onClick={() => removeItem(p)}>
+                    {p.cantidad == 0 ? "Eliminar" : " - "}
+                  </button>
+                  <button onClick={() => masUnItem(p)}> + </button>
+                </div>
               </div>
             );
           })}

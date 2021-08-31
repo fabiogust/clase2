@@ -34,8 +34,8 @@ function ItemDetail({ detalle, onSalir }) {
   const contador = () => {
     return (
       <ItemCount
-        stock={detalle.stock}
-        valorInicial={detalle.cantidad}
+        stock={Number(detalle.stock)}
+        valorInicial={Number("1")}
         onAdd={agregar}
       />
     );
@@ -58,7 +58,7 @@ function ItemDetail({ detalle, onSalir }) {
             onAdd={agregar}
           /> */}
           {cantidadAgregada == 0 ? contador() : compra()}
-          <NavLink to={"/"} activeClassName="" className="">
+          <NavLink to={""} activeClassName="" className="">
             <button className="margen itemDetailBotonSalir" onClick={onSalir}>
               salir
             </button>

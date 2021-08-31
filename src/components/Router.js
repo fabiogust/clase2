@@ -14,6 +14,8 @@ import ResultadosBusqueda from "./ResultadosBusqueda";
 
 import Ofertas from "./Ofertas";
 
+import ItemDetailContainer from "./ItemDetailContainer";
+
 //import { CartContext } from "../context/CartContext";
 //const contextoCarrito = useContext(CartContext);
 
@@ -38,7 +40,7 @@ function Router() {
 
         <Route path="/ofertas" component={Ofertas} />
 
-        <Route path="/item/:id" component={ContainerItems} />
+        <Route path="/item/:id" component={ItemDetailContainer} />
 
         <Route path="*" component={NotFound} />
       </Switch>
@@ -46,6 +48,8 @@ function Router() {
   );
 }
 export default Router;
+
+//ContainerItems    ItemDetailContainer
 
 //  /:categoryId
 
