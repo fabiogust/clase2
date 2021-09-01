@@ -1,26 +1,24 @@
 import ItemListContainer from "../components/ItemListContainer";
 
-import React, { useState, useEffect, useContext } from "react";
-import { useParams } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+
 import { getFirestore } from "../firebase";
 
 import { createContext } from "react";
 
 import hombrePreguntando from "../img/figura2.png";
 
+import Loading from ".././components/Loading";
+
 export const BuscadorContext = createContext();
 
 const BuscadorProvider = ({ children }) => {
-  //const { categoryId } = useParams();
   const [productosBuscar, setProductosBuscar] = useState([]);
   const [encontrado, setEncontrado] = useState(productosBuscar);
-  console.log(`productosBuscar`, productosBuscar);
-  console.log(`encontrado`, encontrado);
-
-  //------------------------------------------------------------
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    //g setLoading(true);
+    setLoading(true);
     const db = getFirestore();
     const itemCollection = db.collection("productosDeIndumentaria");
 
@@ -37,16 +35,13 @@ const BuscadorProvider = ({ children }) => {
           }))
         );
       })
-      .catch((error) => console.log(error));
+      .catch((error) => console.log(error))
+      .finally(setLoading(false));
   }, []);
-
-  /*   if (productosBuscar.length != 0) {
-} */
 
   useEffect(() => {
     setEncontrado(productosBuscar);
   }, [productosBuscar]);
-  //-------------------------------------------------------------
 
   const buscar = (e) => {
     let buscando = productosBuscar.filter((p) => {
@@ -89,11 +84,10 @@ const BuscadorProvider = ({ children }) => {
         renderBusqueda: renderBusqueda,
       }}
     >
+      {loading && <Loading />}
       {children}
     </BuscadorContext.Provider>
   );
 };
 
 export { BuscadorProvider };
-
-//return <BuscadorContext.provider>{children}</BuscadorContext.provider>;

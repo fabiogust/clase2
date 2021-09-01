@@ -3,7 +3,9 @@ import React from "react";
 import ".././style.css";
 
 import collage1 from ".././img/collage-prendas.jpg";
+
 import collage2 from ".././img/collage2.jpg";
+
 import collage3 from ".././img/collage3.jpg";
 
 function Footer() {

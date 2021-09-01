@@ -1,5 +1,6 @@
 import React from "react";
-import { NavLink, useParams } from "react-router-dom";
+
+import { NavLink } from "react-router-dom";
 
 import ".././style.css";
 
@@ -25,5 +26,3 @@ function Item({ producto }) {
 }
 
 export default Item;
-
-//onClick={mostrarDetalle}

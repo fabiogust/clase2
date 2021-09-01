@@ -296,7 +296,7 @@ body {
   color: red;
 }
 
-.loading {
+/* .loading {
   position: fixed;
   top: 30%;
   left: 45%;
@@ -304,6 +304,28 @@ body {
   width: 150px;
   background-color: #00000099;
   border-radius: 50%;
+} */
+
+.loading {
+  position: fixed;
+  top: 30%;
+  left: 45%;
+  width: 170px;
+  height: 170px;
+  border: 10px solid #eee;
+  border-top: 15px solid rgb(38, 69, 245);
+  border-radius: 50%;
+  animation-name: girar;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+@keyframes girar {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /*------footer------*/

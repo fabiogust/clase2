@@ -1,6 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
-
-//import { useParams } from "react-router-dom";
+import React, { useState, useContext } from "react";
 
 import { NavLink } from "react-router-dom";
 
@@ -14,14 +12,10 @@ function ItemDetail({ detalle, onSalir }) {
   const { agregarProducto } = useContext(CartContext);
 
   const [cantidadAgregada, setCantidadAgregada] = useState(0);
-  //  const { params } = useParams();
-  //  console.log("params" + params);
+
   const agregar = (e) => {
     setCantidadAgregada(e.target.value);
-
     agregarProducto(detalle, e.target.value);
-
-    //console.log("detalle, e.target.value", detalle + " | " + e.target.value);
   };
 
   const compra = () => {
@@ -52,11 +46,7 @@ function ItemDetail({ detalle, onSalir }) {
           <div className="margen">Talle: {detalle.talle}</div>
           <div className="margen">Color: {detalle.color}</div>
           <div className="margen ">{"$ " + detalle.precio}</div>
-          {/*  <ItemCount
-            stock={detalle.stock}
-            valorInicial={detalle.cantidad}
-            onAdd={agregar}
-          /> */}
+
           {cantidadAgregada == 0 ? contador() : compra()}
 
           <NavLink to={""} activeClassName="" className="">
@@ -71,25 +61,3 @@ function ItemDetail({ detalle, onSalir }) {
 }
 
 export default ItemDetail;
-
-//<NavLink to={} activeClassName="" className="" ></NavLink>
-
-/*   useEffect(() => {
-    const compra = () => {
-      if (cantidadAgregada == 0) {
-        return (
-          <ItemCount
-            stock={detalle.stock}
-            valorInicial={detalle.cantidad}
-            onAdd={agregar}
-          />
-        );
-      } else if (cantidadAgregada > 0) {
-        return (
-          <NavLink>
-            <button>Terminar mi compra</button>
-          </NavLink>
-        );
-      }
-    };
-  }, []); */

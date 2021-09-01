@@ -1,4 +1,4 @@
-import { Children, useState, useEffect } from "react";
+import { useState } from "react";
 import { createContext } from "react";
 import { NavLink } from "react-router-dom";
 
@@ -11,7 +11,7 @@ const CartProvider = ({ children }) => {
   }
 
   const [productos, setProductos] = useState(prod);
-  console.log(`productosñlñlñlñggggg`, productos);
+
   const carritoLength = () => {
     return (
       productos.length != 0 && (

@@ -1,7 +1,5 @@
 import React from "react";
 
-//import { estilo } from ".././estilos";
-
 import ".././style.css";
 
 function Logo() {

@@ -4,8 +4,6 @@ import ".././style.css";
 
 import Item from "./Item";
 
-import ItemCount from "./ItemCount";
-
 function ItemListContainer({ producto }) {
   return (
     <div className="divItem">
@@ -15,5 +13,3 @@ function ItemListContainer({ producto }) {
 }
 
 export default ItemListContainer;
-
-/* <ItemCount valorInicial={1} stock={producto.stock} /> */

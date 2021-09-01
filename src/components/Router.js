@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
@@ -15,9 +15,6 @@ import ResultadosBusqueda from "./ResultadosBusqueda";
 import Ofertas from "./Ofertas";
 
 import ItemDetailContainer from "./ItemDetailContainer";
-
-//import { CartContext } from "../context/CartContext";
-//const contextoCarrito = useContext(CartContext);
 
 function Router() {
   return (
@@ -50,27 +47,3 @@ function Router() {
   );
 }
 export default Router;
-
-//ContainerItems    ItemDetailContainer
-
-//  /:categoryId
-
-/* 
-function Router() {
-  return (
-    <BrowserRouter>
-      <NavBar />
-      <Switch>
-        <Route exact path="/" component={ContainerItems} />
-        <Route path="/buscador" component={Buscador} />
-        <Route path="/category/:categoryId" component={ContainerItems} />
-        <Route path="/carrito" component={Carrito} />
-        <Route path="/item/:id" component={ContainerItems} />
-        <Route path="*" component={NotFound} />
-      </Switch>
-    </BrowserRouter>
-  );
-} 
-*/
-
-//var pathname = window.location.pathname;

@@ -13,10 +13,6 @@ function ProductosEnCarrito({ clase }) {
   const [telefonoCliente, setTelefonoCliente] = useState("");
   const [emailCliente, setEmailCliente] = useState("");
 
-  console.log(`productosñlñlñlñ`, productos);
-  console.log(`orderCreatedId`, orderCreatedId);
-
-  //--------------------------------------------------------------
   const handleFinishPurchase = () => {
     const newItems = productos.map(({ detalle, cantidad }) => ({
       item: {
@@ -59,7 +55,7 @@ function ProductosEnCarrito({ clase }) {
 
     removeTodo();
   };
-
+  //-------------------------------------------------------------------------------------------
   console.log(`orderCreatedId3333`, orderCreatedId);
 
   const compraTerminada = () => {
@@ -104,84 +100,3 @@ function ProductosEnCarrito({ clase }) {
 }
 
 export default ProductosEnCarrito;
-
-/*
-
-  const { items } = useContext(CartContext);
-
-  const [total, setTotal] = useState(0);
-  const [orderCreatedId, setOrderCreatedId] = useState(null);
-
-  useEffect(() => {
-    if (items.length > 0) {
-      let currentTotal = 0;
-      items.forEach(({ item, quantity }) => {
-        currentTotal += item.price * quantity;
-      });
-      setTotal(currentTotal);
-    }
-  }, [items]);
-
-  console.log("items", items);
-
-  const handleFinishPurchase = () => {
-    const newItems = items.map(({ item, quantity }) => ({
-      item: {
-        id: item.id,
-        title: item.title,
-        price: item.price,
-      },
-      quantity,
-    }));
-    console.log("newItems", newItems);
-    const newOrder = {
-      buyer: {
-        name: "Leo",
-        phone: "12345678910",
-        email: "leo@leo.com",
-      },
-      items: newItems,
-      total,
-    };
-    const db = getFirestore();
-    const orders = db.collection("orders");
-    // const docRef = db.collection("items").doc(items[0].item.id);
-    const batch = db.batch();
-
-    orders
-      .add(newOrder)
-      .then((response) => {
-        console.log("response", response);
-        // docRef.update({
-        //   stock: items[0].item.stock - items[0].quantity,
-        // });
-        items.forEach(({ item, quantity }) => {
-          const docRef = db.collection("items").doc(item.id);
-          batch.update(docRef, { stock: item.stock - quantity });
-        });
-        batch.commit();
-        setOrderCreatedId(response.id);
-      })
-      .catch((error) => console.log(error));
-  };
-
-*/
-
-//------------------------------------------------
-
-/*
-
-import React, { useContext } from "react";
-
-import { CartContext } from "../context/CartContext";
-
-function ProductosEnCarrito({ clase }) {
-  const { mostrarProductos } = useContext(CartContext);
-
-  return <div className={clase}>{mostrarProductos()}</div>;
-}
-
-export default ProductosEnCarrito;
-
-
-*/
