@@ -28,7 +28,9 @@ function Router() {
           <ContainerItems />
         </Route>
 
-        <Route path="/buscador" component={ResultadosBusqueda} />
+        <Route path="/buscador">
+          <ResultadosBusqueda />
+        </Route>
 
         <Route path="/category/:categoryId">
           <ContainerItems />

@@ -6,7 +6,7 @@ import carrito from ".././img/carrito2.svg";
 
 //import { estilo } from ".././estilos";
 
-import ProductosEnCarrito from "./ProductosEnCarrito";
+//import ProductosEnCarrito from "./ProductosEnCarrito";
 
 import ".././style.css";
 

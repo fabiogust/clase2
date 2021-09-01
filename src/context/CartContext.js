@@ -4,8 +4,6 @@ import { NavLink } from "react-router-dom";
 
 export const CartContext = createContext();
 
-//export default CartContext;
-
 const CartProvider = ({ children }) => {
   let prod = [];
   if (recuperarLoGuardadoEnLocalStorage() != null) {
@@ -13,7 +11,7 @@ const CartProvider = ({ children }) => {
   }
 
   const [productos, setProductos] = useState(prod);
-
+  console.log(`productosñlñlñlñggggg`, productos);
   const carritoLength = () => {
     return (
       productos.length != 0 && (
@@ -169,6 +167,9 @@ const CartProvider = ({ children }) => {
         agregarProducto: agregarProducto,
         mostrarProductos: mostrarProductos,
         carritoLength: carritoLength,
+        productos: productos,
+        valorTotal: valorTotal,
+        removeTodo: removeTodo,
       }}
     >
       {children}
