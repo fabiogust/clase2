@@ -27,7 +27,7 @@ function ItemDetail({ detalle, onSalir }) {
   const compra = () => {
     return (
       <NavLink to={"/carrito"}>
-        <button>Terminar mi compra</button>
+        <button className="ContinuarMiCompra">Continuar mi compra</button>
       </NavLink>
     );
   };

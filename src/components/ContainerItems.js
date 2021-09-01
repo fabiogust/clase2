@@ -10,6 +10,8 @@ import { getFirestore } from "../firebase";
 
 import ItemDetail from "./ItemDetail";
 
+import Loading from "./Loading";
+
 function ContainerItems() {
   // let [productos, setProductos] = useState([]);
   const { categoryId, id } = useParams();
@@ -21,10 +23,10 @@ function ContainerItems() {
 
   // const [item, setItem] = useState(null);
   const [itemsWidthHighPrice, setItemsWidthHighPrice] = useState([]);
-  // const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    // setLoading(true);
+    setLoading(true);
     const db = getFirestore();
     const itemCollection = db.collection("productosDeIndumentaria");
     // const currentItem = itemCollection.doc(itemId);
@@ -45,8 +47,8 @@ function ContainerItems() {
           }))
         );
       })
-      .catch((error) => console.log(error));
-    // .finally(() => setLoading(false));
+      .catch((error) => console.log(error))
+      .finally(() => setLoading(false));
 
     /* highPrice
       .get()
@@ -126,6 +128,7 @@ function ContainerItems() {
 
   return (
     <>
+      {loading && <Loading />}
       {categoryId == undefined ? todos() : seleccion()}
       {detail()}
     </>

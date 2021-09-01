@@ -296,6 +296,16 @@ body {
   color: red;
 }
 
+.loading {
+  position: fixed;
+  top: 30%;
+  left: 45%;
+  height: 150px;
+  width: 150px;
+  background-color: #00000099;
+  border-radius: 50%;
+}
+
 /*------footer------*/
 
 footer {

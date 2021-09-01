@@ -40,16 +40,12 @@ function ProductosEnCarrito({ clase }) {
     console.log(`newOrderfff`, newOrder);
     const db = getFirestore();
     const orders = db.collection("orders");
-    // const docRef = db.collection("items").doc(items[0].item.id);
     const batch = db.batch();
 
     orders
       .add(newOrder)
       .then((response) => {
         console.log("response", response);
-        // docRef.update({
-        //   stock: items[0].item.stock - items[0].quantity,
-        // });
         productos.forEach(({ detalle, cantidad }) => {
           const docRef = db
             .collection("productosDeIndumentaria")
@@ -67,9 +63,11 @@ function ProductosEnCarrito({ clase }) {
   console.log(`orderCreatedId3333`, orderCreatedId);
 
   const compraTerminada = () => {
-    <h1>
-      {nombreCliente} la orden es: {orderCreatedId}{" "}
-    </h1>;
+    return (
+      <h1>
+        {nombreCliente} la orden es: {orderCreatedId}{" "}
+      </h1>
+    );
   };
 
   return (

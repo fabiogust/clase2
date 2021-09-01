@@ -7,7 +7,7 @@ import { BuscadorContext } from "../context/BuscadorContext";
 function ResultadosBusqueda() {
   const { renderBusqueda } = useContext(BuscadorContext);
 
-  return <>{() => renderBusqueda()}</>;
+  return <>{renderBusqueda()}</>;
 }
 
 export default ResultadosBusqueda;
