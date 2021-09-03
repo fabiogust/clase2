@@ -35,7 +35,7 @@ function ItemDetailContainer() {
   }, [id]);
 
   const claseCss = () => {
-    if (id != undefined) {
+    if (id !== undefined) {
       return "containerDitail";
     } else {
       return "";
@@ -45,7 +45,7 @@ function ItemDetailContainer() {
   return (
     <div className={claseCss()}>
       {loading && <Loading />}
-      {detalle != undefined && <ItemDetail detalle={detalle} />}
+      {detalle !== undefined && <ItemDetail detalle={detalle} />}
     </div>
   );
 }

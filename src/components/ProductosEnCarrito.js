@@ -11,7 +11,7 @@ import { CartContext } from "../context/CartContext";
 import { useRouteMatch } from "react-router-dom";
 
 function ProductosEnCarrito({ clase }) {
-  const { mostrarProductos, productos, valorTotal, carritoLength, removeTodo } =
+  const { mostrarProductos, productos, valorTotal, removeTodo } =
     useContext(CartContext);
 
   let match = useRouteMatch("/carrito");
@@ -27,23 +27,26 @@ function ProductosEnCarrito({ clase }) {
   });
 
   const handleFinishPurchase = () => {
-    const newItems = productos.map(({ detalle, cantidad }) => ({
-      item: {
-        id: detalle.id,
-        title: detalle.nombre,
-        price: detalle.precio,
-      },
-      cantidad: cantidad,
-    }));
+    const newItems = productos.filter(({ detalle, cantidad }) => {
+      if (cantidad !== 0) {
+        return {
+          item: {
+            id: detalle.id,
+            title: detalle.nombre,
+            price: detalle.precio,
+          },
+          cantidad: cantidad,
+        };
+      }
+    });
 
-    console.log("newItems", newItems);
     const newOrder = {
       buyer: usuario,
       items: newItems,
       valorTotal: valorTotal(),
       fechaHora: firebase.firestore.Timestamp.fromDate(new Date()),
     };
-    console.log(`newOrderfff`, newOrder);
+
     const db = getFirestore();
     const orders = db.collection("orders");
     const batch = db.batch();
@@ -65,8 +68,6 @@ function ProductosEnCarrito({ clase }) {
 
     removeTodo();
   };
-  //-------------------------------------------------------------------------------------------
-  //console.log(`orderCreatedId3333`, orderCreatedId);
 
   const compraTerminada = () => {
     return (
@@ -106,7 +107,9 @@ function ProductosEnCarrito({ clase }) {
   const inputDatosCliente = () => {
     return (
       <div className="datosDeCompra">
-        <h4 className="tituloDeDatosDeCompra">Complete sus datos.</h4>
+        <h4 className="tituloDeDatosDeCompra">
+          Complete los datos para finalizar su compra.
+        </h4>
         <div className="divDeInput">
           <input
             className="inputDatos"

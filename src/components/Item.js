@@ -11,7 +11,7 @@ function Item({ producto }) {
   return (
     <>
       <div className="divImg">
-        <img className="imgDivImg" src={imagen} alt={"sin imagen " + imagen} />
+        <img className="imgDivImg" src={imagen} />
       </div>
       <div className="margen">{nombre}</div>
       <div className="margen">{"$ " + precio}</div>

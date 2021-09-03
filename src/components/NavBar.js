@@ -2,8 +2,6 @@ import React, { useContext } from "react";
 
 import ".././style.css";
 
-import { Dropdown, NavDropdown } from "react-bootstrap";
-
 import Carrito from "./Carrito";
 
 import Logo from "./Logo";

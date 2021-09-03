@@ -25,9 +25,9 @@ const BuscadorProvider = ({ children }) => {
     itemCollection
       .get()
       .then((querySnapshot) => {
-        if (querySnapshot.size === 0) {
+        /* if (querySnapshot.size === 0) {
           console.log("No items");
-        }
+        } */
         setProductosBuscar(
           querySnapshot.docs.map((document) => ({
             id: document.id,
@@ -51,7 +51,6 @@ const BuscadorProvider = ({ children }) => {
         .includes(e.target.value.replaceAll(" ", "").toUpperCase());
     });
     setEncontrado(buscando);
-    console.log(`buscando`, buscando);
   };
   const renderBusq = () => {
     return (
@@ -68,7 +67,7 @@ const BuscadorProvider = ({ children }) => {
   const nada = () => {
     return (
       <>
-        <img src={hombrePreguntando} />
+        <img src={hombrePreguntando} alt="SIN RESULTADOS" />
       </>
     );
   };

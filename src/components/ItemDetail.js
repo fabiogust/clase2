@@ -21,7 +21,7 @@ function ItemDetail({ detalle, onSalir }) {
   const compra = () => {
     return (
       <NavLink to={"/carrito"}>
-        <button className="ContinuarMiCompra botonHover margen">
+        <button className="continuarMiCompra botonHover margen padding">
           Continuar mi compra
         </button>
       </NavLink>
@@ -41,7 +41,11 @@ function ItemDetail({ detalle, onSalir }) {
     <div className="itemDetailDiv">
       <div className="itemDetail margen">
         <div className="divImg ">
-          <img src={detalle.imagen} alt={"sin imagen " + detalle.imagen} />
+          <img
+            className="maxImg"
+            src={detalle.imagen}
+            alt={"sin imagen " + detalle.imagen}
+          />
         </div>
         <div className="divRelativo">
           <div className="margen">{detalle.nombre}</div>

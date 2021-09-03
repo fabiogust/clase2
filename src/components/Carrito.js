@@ -9,14 +9,14 @@ import ".././style.css";
 import { CartContext } from "../context/CartContext";
 
 function Carrito() {
-  const { carritoLength } = useContext(CartContext);
+  const { carritoLength, valorTotal } = useContext(CartContext);
 
   return (
     <>
       <li className="hoverCarrito liCard">
         <img src={carrito} className="carrito" alt="Carrito" />
 
-        {carritoLength()}
+        {valorTotal() != 0 && carritoLength()}
       </li>
     </>
   );

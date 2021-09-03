@@ -111,8 +111,6 @@ const CartProvider = ({ children }) => {
     localStorage.setItem("guardadoEnLocalStorage", JSON.stringify(entrada));
   }
 
-  //------------------------------------------------------------------------
-
   const mostrarProductos = () => {
     return (
       <div className="divDeProductosEnCarrito">
@@ -121,7 +119,11 @@ const CartProvider = ({ children }) => {
             return (
               <div className="itemEnCarrito" key={p.detalle.id}>
                 <div className="divImgEnCarrito">
-                  <img src={p.detalle.imagen} className="imgEnCarrito" />
+                  <img
+                    src={p.detalle.imagen}
+                    className="imgEnCarrito"
+                    alt={p.detalle.nombre}
+                  />
                 </div>
                 <div className="datoCarrito">
                   <div className="datoCarritoNombreProducto">

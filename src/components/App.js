@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import Router from "./Router";
 
@@ -22,13 +22,3 @@ function App() {
 }
 
 export default App;
-
-/*
- <button
-          disabled={!(name !== '' && surname !== '' && age !== '')}
-          onClick={onSubmit}
-        >
-          Crear orden
-        </button>
-
-*/
