@@ -120,11 +120,13 @@ const CartProvider = ({ children }) => {
           {productos.map((p) => {
             return (
               <div className="itemEnCarrito" key={p.detalle.id}>
-                <div>
+                <div className="divImgEnCarrito">
                   <img src={p.detalle.imagen} className="imgEnCarrito" />
                 </div>
                 <div className="datoCarrito">
-                  <div className="datoCarrito">{p.detalle.nombre}</div>
+                  <div className="datoCarritoNombreProducto">
+                    {p.detalle.nombre}
+                  </div>
                   <div className="divBotonS-R">
                     <div>
                       {p.cantidad == 0 ? " " : " $" + p.detalle.precio}

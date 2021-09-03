@@ -16,8 +16,20 @@ import ProductosEnCarrito from "./ProductosEnCarrito";
 
 import { CartContext } from "../context/CartContext";
 
+import { useRouteMatch } from "react-router-dom";
+
 export default function NavBar() {
   const { carritoLength } = useContext(CartContext);
+
+  let match = useRouteMatch("/carrito");
+
+  const ulVistaRapida = () => {
+    if (match) {
+      return "";
+    } else {
+      return "ulVistaRapida";
+    }
+  };
 
   return (
     <div>
@@ -73,7 +85,7 @@ export default function NavBar() {
             </ul>
           </li>
 
-          <li className="liCarrito ulVistaRapida">
+          <li className={`liCarrito ${ulVistaRapida()}`}>
             <ul className="ulCarrito">
               <NavLink
                 to="/carrito"
@@ -92,17 +104,3 @@ export default function NavBar() {
     </div>
   );
 }
-
-/*
-
-<li className="hover">
-            <NavLink
-              to="/ofertas"
-              activeClassName="activeNavLink"
-              className="ofertas"
-            >
-              Ofertas
-            </NavLink>
-          </li>
-
-*/

@@ -12,14 +12,14 @@
 }
 
 .hover:hover {
-  color: rgb(95, 60, 221) !important;
+  color: #fb00a2;
   transform: scale(1.03);
 }
 .hoverS:hover {
-  color: rgb(95, 60, 221) !important;
+  /* color: #fb00a2 !important; */
   transform: scale(1.01);
   z-index: 110;
-  border-bottom: 2px solid rgb(95, 60, 221);
+  border-bottom: 2px solid #fb00a2;
 }
 .hoverCarrito:hover {
   transform: scale(1.05);
@@ -200,7 +200,7 @@ body {
   right: -79px;
   font-size: 16px;
   background-color: antiquewhite;
-  /* width: px;  */
+  /* width: 500px; */
   border: 1px solid #bdb8b8;
 }
 .liCard {
@@ -217,7 +217,38 @@ body {
   display: flex;
 }
 .datoCarrito {
-  margin: 7px;
+  /* margin: 7px 0px; */
+  margin: 7px 7px 7px 5px;
+  width: 265px;
+  padding-left: 15px;
+  padding-right: 15px;
+  /*  transform: translateX(10px); */
+  transform: translate(0px, -2px);
+
+  border-top: 1px solid #bdb8b8;
+  border-bottom: 1px solid #bdb8b8;
+  box-sizing: border-box;
+  /*  background: linear-gradient(top, transparent, #ffffff99, transparent); */
+  background: linear-gradient(
+    0.25turn,
+    transparent,
+    #ffffff99,
+    #ffffff,
+    #ffffff,
+    #ffffff,
+    #ffffff,
+    #ffffff,
+    #ffffff,
+    #ffffff,
+    #ffffff,
+    #ffffff,
+    #ffffff,
+    #ffffff99,
+    transparent
+  );
+}
+.datoCarritoNombreProducto {
+  margin: 26px 7px 7px 7px;
   width: 235px;
 }
 .botonP {
@@ -279,7 +310,9 @@ body {
 
 .imgEnCarrito {
   width: 90px;
+
   margin: 5px;
+  border: 1px solid rgb(191, 194, 191);
 }
 
 .carritoSinProductos {
@@ -343,6 +376,18 @@ body {
   margin: 5px;
   padding: 1px 4px;
 }
+.divOrdenDeCompra {
+  margin: 80px 200px;
+  padding: 40px 10px;
+  border: 3px solid #fb00a2;
+  border-radius: 6px;
+  text-align: center;
+  line-height: 45px;
+}
+/* .divImg {
+  border: 1px solid rgb(191, 194, 191);
+  border-bottom: 2px solid rgb(191, 194, 191);
+} */
 
 /*---------------------------------------------------------------------------------------------------*/
 .carritoLength {

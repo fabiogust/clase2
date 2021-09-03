@@ -1,12 +1,20 @@
+import firebase from "firebase/app";
+
+import "firebase/firestore";
+
 import React, { useContext, useState } from "react";
 
 import { getFirestore } from "../firebase";
 
 import { CartContext } from "../context/CartContext";
 
+import { useRouteMatch } from "react-router-dom";
+
 function ProductosEnCarrito({ clase }) {
   const { mostrarProductos, productos, valorTotal, carritoLength, removeTodo } =
     useContext(CartContext);
+
+  let match = useRouteMatch("/carrito");
 
   const [orderCreatedId, setOrderCreatedId] = useState(null);
 
@@ -33,6 +41,7 @@ function ProductosEnCarrito({ clase }) {
       buyer: usuario,
       items: newItems,
       valorTotal: valorTotal(),
+      fechaHora: firebase.firestore.Timestamp.fromDate(new Date()),
     };
     console.log(`newOrderfff`, newOrder);
     const db = getFirestore();
@@ -57,13 +66,17 @@ function ProductosEnCarrito({ clase }) {
     removeTodo();
   };
   //-------------------------------------------------------------------------------------------
-  console.log(`orderCreatedId3333`, orderCreatedId);
+  //console.log(`orderCreatedId3333`, orderCreatedId);
 
   const compraTerminada = () => {
     return (
-      <h4>
-        {usuario.nombreCliente} su orden de compra es: {orderCreatedId}
-      </h4>
+      <div className="divOrdenDeCompra">
+        <h4 className="tituloOrdenDeCompra">GRACIAS POR SU COMPRA!</h4>
+        <p className="parrafoOrdenDeCompra">
+          {usuario.nombreCliente} su orden de compra es:
+        </p>
+        <h5 className="keyOrdenDeCompra">{orderCreatedId}</h5>
+      </div>
     );
   };
 
@@ -90,53 +103,59 @@ function ProductosEnCarrito({ clase }) {
     );
   };
 
+  const inputDatosCliente = () => {
+    return (
+      <div className="datosDeCompra">
+        <h4 className="tituloDeDatosDeCompra">Complete sus datos.</h4>
+        <div className="divDeInput">
+          <input
+            className="inputDatos"
+            name="nombreCliente"
+            onChange={agregarUsuario}
+            type="text"
+            placeholder="Nombre"
+          />
+          <input
+            className="inputDatos"
+            name="telefonoCliente"
+            onChange={agregarUsuario}
+            type="number"
+            placeholder="Telefono"
+          />
+          <input
+            className="inputDatos"
+            name="emailCliente"
+            onChange={agregarUsuario}
+            type="email"
+            placeholder="correo@correo.com"
+          />
+          <input
+            className="inputDatos"
+            onChange={confirmarEmail}
+            type="email"
+            placeholder="Repita su correo@correo.com"
+          />
+        </div>
+        <div>
+          <button
+            className="botonTerminarCompra"
+            disabled={habilitarBoton()}
+            onClick={handleFinishPurchase}
+          >
+            Terminar compra
+          </button>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <>
-      <div className={clase}>{mostrarProductos()}</div>
-      {valorTotal() != 0 && (
-        <div className="datosDeCompra">
-          <h4 className="tituloDeDatosDeCompra">Complete sus datos.</h4>
-          <div className="divDeInput">
-            <input
-              className="inputDatos"
-              name="nombreCliente"
-              onChange={agregarUsuario}
-              type="text"
-              placeholder="Nombre"
-            />
-            <input
-              className="inputDatos"
-              name="telefonoCliente"
-              onChange={agregarUsuario}
-              type="tel"
-              placeholder="Telefono"
-            />
-            <input
-              className="inputDatos"
-              name="emailCliente"
-              onChange={agregarUsuario}
-              type="email"
-              placeholder="correo@correo.com"
-            />
-            <input
-              className="inputDatos"
-              onChange={confirmarEmail}
-              type="email"
-              placeholder="Repita su correo@correo.com"
-            />
-          </div>
-          <div>
-            <button
-              className="botonTerminarCompra"
-              disabled={habilitarBoton()}
-              onClick={handleFinishPurchase}
-            >
-              Terminar compra
-            </button>
-          </div>
-        </div>
-      )}
-      {orderCreatedId != null && compraTerminada()}
+      <div className={clase}>
+        {mostrarProductos()}
+        {valorTotal() != 0 && match && inputDatosCliente()}
+        {orderCreatedId != null && compraTerminada()}
+      </div>
     </>
   );
 }

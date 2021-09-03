@@ -21,7 +21,9 @@ function ItemDetail({ detalle, onSalir }) {
   const compra = () => {
     return (
       <NavLink to={"/carrito"}>
-        <button className="ContinuarMiCompra">Continuar mi compra</button>
+        <button className="ContinuarMiCompra botonHover margen">
+          Continuar mi compra
+        </button>
       </NavLink>
     );
   };
@@ -37,7 +39,7 @@ function ItemDetail({ detalle, onSalir }) {
 
   return (
     <div className="itemDetailDiv">
-      <div className="itemDetail">
+      <div className="itemDetail margen">
         <div className="divImg ">
           <img src={detalle.imagen} alt={"sin imagen " + detalle.imagen} />
         </div>

@@ -33,8 +33,9 @@ function ItemDetailContainer() {
       .catch((error) => console.log(error))
       .finally(setLoading(false));
   }, [id]);
+
   const claseCss = () => {
-    if (detalle != undefined) {
+    if (id != undefined) {
       return "containerDitail";
     } else {
       return "";
