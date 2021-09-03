@@ -9,9 +9,14 @@ function ProductosEnCarrito({ clase }) {
     useContext(CartContext);
 
   const [orderCreatedId, setOrderCreatedId] = useState(null);
-  const [nombreCliente, setNombreCliente] = useState("");
-  const [telefonoCliente, setTelefonoCliente] = useState("");
-  const [emailCliente, setEmailCliente] = useState("");
+
+  const [confirmEmail, setConfirmEmail] = useState("");
+
+  const [usuario, setUsuario] = useState({
+    nombreCliente: "",
+    telefonoCliente: "",
+    emailCliente: "",
+  });
 
   const handleFinishPurchase = () => {
     const newItems = productos.map(({ detalle, cantidad }) => ({
@@ -25,11 +30,7 @@ function ProductosEnCarrito({ clase }) {
 
     console.log("newItems", newItems);
     const newOrder = {
-      buyer: {
-        name: nombreCliente,
-        phone: telefonoCliente,
-        email: emailCliente,
-      },
+      buyer: usuario,
       items: newItems,
       valorTotal: valorTotal(),
     };
@@ -60,9 +61,32 @@ function ProductosEnCarrito({ clase }) {
 
   const compraTerminada = () => {
     return (
-      <h1>
-        {nombreCliente} la orden es: {orderCreatedId}{" "}
-      </h1>
+      <h4>
+        {usuario.nombreCliente} su orden de compra es: {orderCreatedId}
+      </h4>
+    );
+  };
+
+  const agregarUsuario = (e) => {
+    setUsuario({ ...usuario, [e.target.name]: e.target.value });
+  };
+
+  const confirmarEmail = (e) => {
+    setConfirmEmail(e.target.value);
+  };
+  const validarEmail = () => {
+    if (confirmEmail == usuario.emailCliente) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+  const habilitarBoton = () => {
+    return !(
+      usuario.nombreCliente !== "" &&
+      usuario.telefonoCliente !== "" &&
+      usuario.emailCliente !== "" &&
+      validarEmail()
     );
   };
 
@@ -70,29 +94,47 @@ function ProductosEnCarrito({ clase }) {
     <>
       <div className={clase}>{mostrarProductos()}</div>
       {valorTotal() != 0 && (
-        <>
-          <div>
+        <div className="datosDeCompra">
+          <h4 className="tituloDeDatosDeCompra">Complete sus datos.</h4>
+          <div className="divDeInput">
             <input
-              id="nombreCliente"
-              onChange={(e) => setNombreCliente(e.target.value)}
+              className="inputDatos"
+              name="nombreCliente"
+              onChange={agregarUsuario}
               type="text"
               placeholder="Nombre"
             />
             <input
-              id="telefonoCliente"
-              onChange={(e) => setTelefonoCliente(e.target.value)}
+              className="inputDatos"
+              name="telefonoCliente"
+              onChange={agregarUsuario}
               type="tel"
               placeholder="Telefono"
             />
             <input
-              id="emailCliente"
-              onChange={(e) => setEmailCliente(e.target.value)}
+              className="inputDatos"
+              name="emailCliente"
+              onChange={agregarUsuario}
               type="email"
-              placeholder="Ej@email.com"
+              placeholder="correo@correo.com"
+            />
+            <input
+              className="inputDatos"
+              onChange={confirmarEmail}
+              type="email"
+              placeholder="Repita su correo@correo.com"
             />
           </div>
-          <button onClick={handleFinishPurchase}>Terminar compra</button>
-        </>
+          <div>
+            <button
+              className="botonTerminarCompra"
+              disabled={habilitarBoton()}
+              onClick={handleFinishPurchase}
+            >
+              Terminar compra
+            </button>
+          </div>
+        </div>
       )}
       {orderCreatedId != null && compraTerminada()}
     </>

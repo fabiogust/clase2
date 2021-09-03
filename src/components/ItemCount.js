@@ -8,7 +8,7 @@ function ItemCount({ stock, valorInicial, onAdd }) {
   return (
     <div>
       <button
-        className="boton"
+        className="boton menos"
         onClick={() => {
           cantidad <= 1 ? setCantidad(1) : setCantidad(cantidad - 1);
         }}
@@ -17,14 +17,14 @@ function ItemCount({ stock, valorInicial, onAdd }) {
       </button>
       <span className="span">{cantidad}</span>
       <button
-        className="boton"
+        className="boton mas"
         onClick={() => {
           cantidad >= stock ? setCantidad(stock) : setCantidad(cantidad + 1);
         }}
       >
         +
       </button>
-      <button onClick={onAdd} value={cantidad}>
+      <button className="botonHover padding" onClick={onAdd} value={cantidad}>
         Agregar al carrito
       </button>
     </div>

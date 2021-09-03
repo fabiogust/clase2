@@ -22,3 +22,13 @@ function App() {
 }
 
 export default App;
+
+/*
+ <button
+          disabled={!(name !== '' && surname !== '' && age !== '')}
+          onClick={onSubmit}
+        >
+          Crear orden
+        </button>
+
+*/

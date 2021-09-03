@@ -4,7 +4,7 @@ import ".././style.css";
 
 function Logo() {
   return (
-    <div className="divLogo">
+    <div className="divLogo hoverScale">
       <div className="logoArriba">THE CLOSET</div>
       <div className="logoAbajo">Indumentaria</div>
     </div>

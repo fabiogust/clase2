@@ -115,7 +115,7 @@ const CartProvider = ({ children }) => {
 
   const mostrarProductos = () => {
     return (
-      <div>
+      <div className="divDeProductosEnCarrito">
         <div>
           {productos.map((p) => {
             return (
@@ -125,15 +125,29 @@ const CartProvider = ({ children }) => {
                 </div>
                 <div className="datoCarrito">
                   <div className="datoCarrito">{p.detalle.nombre}</div>
-                  {p.cantidad == 0 ? " " : " $ " + p.detalle.precio}
-                  {p.cantidad == 0 ? " " : " X " + p.cantidad + " = "}
-                  {p.cantidad == 0
-                    ? " "
-                    : " $ " + p.detalle.precio * p.cantidad}
-                  <button onClick={() => removeItem(p)}>
-                    {p.cantidad == 0 ? "Eliminar" : " - "}
-                  </button>
-                  <button onClick={() => masUnItem(p)}> + </button>
+                  <div className="divBotonS-R">
+                    <div>
+                      {p.cantidad == 0 ? " " : " $" + p.detalle.precio}
+                      {p.cantidad == 0 ? " " : " X " + p.cantidad + " = "}
+                      {p.cantidad == 0
+                        ? " "
+                        : " $" + p.detalle.precio * p.cantidad}
+                    </div>
+                    <div>
+                      <button
+                        className="botonS-R menos"
+                        onClick={() => removeItem(p)}
+                      >
+                        {p.cantidad == 0 ? `ELIMINAR ESTE PRODUCTO` : " - "}
+                      </button>
+                      <button
+                        className="botonS-R mas"
+                        onClick={() => masUnItem(p)}
+                      >
+                        +{" "}
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
             );
@@ -142,21 +156,35 @@ const CartProvider = ({ children }) => {
         {productos.length == 0 ? (
           sinProductos()
         ) : (
-          <>
-            <span>{" Total: $ " + valorTotal()}</span>
-            <button onClick={removeTodo}>borrar todo</button>
-          </>
+          <div className="divTotalyBorrar">
+            <div className="margen">{" Total: $" + valorTotal()}</div>
+            <div>
+              <button className="botonHover margen botonP" onClick={removeTodo}>
+                Borrar todo
+              </button>
+            </div>
+          </div>
         )}
       </div>
     );
   };
   function sinProductos() {
     return (
-      <div>
-        <h2>No tiene productos en el carrito</h2>
-        <NavLink to="/" activeClassName="" className="">
-          <h4>Vea los productos disponibles</h4>
-        </NavLink>
+      <div className="carritoSinProductos">
+        <h2 className="tituloCarritoSinProductos">
+          No tiene productos en el carrito.
+        </h2>
+        <div>
+          <NavLink
+            to="/"
+            activeClassName=""
+            className="linkCarritoSinProductos"
+          >
+            <button className="botonCarritoSinProductos">
+              Vea los productos disponibles
+            </button>
+          </NavLink>
+        </div>
       </div>
     );
   }

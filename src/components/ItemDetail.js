@@ -50,7 +50,10 @@ function ItemDetail({ detalle, onSalir }) {
           {cantidadAgregada == 0 ? contador() : compra()}
 
           <NavLink to={""} activeClassName="" className="">
-            <button className="margen itemDetailBotonSalir" onClick={onSalir}>
+            <button
+              className="margen itemDetailBotonSalir botonHover"
+              onClick={onSalir}
+            >
               salir
             </button>
           </NavLink>

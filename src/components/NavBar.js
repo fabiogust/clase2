@@ -38,56 +38,50 @@ export default function NavBar() {
           </li>
 
           <li className="liSubUl hover">
-            Categorias
+            <span className="spanCategorias">Categorias</span>
             <ul className="subUl ">
-              <li className="subLi">
+              <li className="subLi subLi1 hoverS">
                 <NavLink
                   to="/category/remeras"
                   activeClassName="activeNavLink"
                   className=""
                   value="remeras"
                 >
-                  Remeras
+                  <span className="hover">Remeras</span>
                 </NavLink>
               </li>
-              <li className="subLi">
+              <li className="subLi subLi2 hoverS">
                 <NavLink
                   to="/category/pantalones"
                   activeClassName="activeNavLink"
                   className=""
                   value="pantalones"
                 >
-                  Pantalones
+                  <span className="hover">Pantalones</span>
                 </NavLink>
               </li>
-              <li className="subLi">
+              <li className="subLi subLi3 hoverS">
                 <NavLink
                   to="/category/lenceria"
                   activeClassName="activeNavLink"
                   className=""
                   value="lenceria"
                 >
-                  Lenceria
+                  <span className="hover">Lenceria</span>
                 </NavLink>
               </li>
             </ul>
           </li>
 
-          <li className="hover">
-            <NavLink
-              to="/ofertas"
-              activeClassName="activeNavLink"
-              className="ofertas"
-            >
-              Ofertas
-            </NavLink>
-          </li>
-
           <li className="liCarrito ulVistaRapida">
-            <NavLink to="/carrito" activeClassName="activeNavLink" className="">
-              <Carrito />
-            </NavLink>
-            <ul className="">
+            <ul className="ulCarrito">
+              <NavLink
+                to="/carrito"
+                activeClassName="activeNavLink"
+                className=""
+              >
+                <Carrito />
+              </NavLink>
               <li className="liVistaRapida">
                 {carritoLength() != 0 && <ProductosEnCarrito clase={""} />}
               </li>
@@ -98,3 +92,17 @@ export default function NavBar() {
     </div>
   );
 }
+
+/*
+
+<li className="hover">
+            <NavLink
+              to="/ofertas"
+              activeClassName="activeNavLink"
+              className="ofertas"
+            >
+              Ofertas
+            </NavLink>
+          </li>
+
+*/

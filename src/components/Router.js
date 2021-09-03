@@ -12,7 +12,7 @@ import ProductosEnCarrito from "./ProductosEnCarrito";
 
 import ResultadosBusqueda from "./ResultadosBusqueda";
 
-import Ofertas from "./Ofertas";
+//import Ofertas from "./Ofertas";
 
 import ItemDetailContainer from "./ItemDetailContainer";
 
@@ -37,8 +37,6 @@ function Router() {
           <ProductosEnCarrito clase="prodEnCarritoDesdeRouter" />
         </Route>
 
-        <Route path="/ofertas" component={Ofertas} />
-
         <Route path="/item/:id" component={ItemDetailContainer} />
 
         <Route path="*" component={NotFound} />
@@ -47,3 +45,5 @@ function Router() {
   );
 }
 export default Router;
+
+//<Route path="/ofertas" component={Ofertas} />

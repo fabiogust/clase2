@@ -33,12 +33,19 @@ function ItemDetailContainer() {
       .catch((error) => console.log(error))
       .finally(setLoading(false));
   }, [id]);
+  const claseCss = () => {
+    if (detalle != undefined) {
+      return "containerDitail";
+    } else {
+      return "";
+    }
+  };
 
   return (
-    <>
+    <div className={claseCss()}>
       {loading && <Loading />}
       {detalle != undefined && <ItemDetail detalle={detalle} />}
-    </>
+    </div>
   );
 }
 
