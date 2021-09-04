@@ -95,6 +95,7 @@ body {
   background-color: #cccccc;
   padding: 20px;
   display: flex;
+  border: 1px solid #bdb8b8;
 }
 .itemDetailBotonSalir {
   position: absolute;
@@ -105,6 +106,7 @@ body {
 }
 .divRelativo {
   position: relative;
+  width: 230px !important;
 }
 
 .displayNone {
@@ -202,6 +204,9 @@ body {
   background-color: antiquewhite;
   /* width: 500px; */
   border: 1px solid #bdb8b8;
+
+  max-height: 333px;
+  overflow-y: scroll;
 }
 .liCard {
   position: relative;
@@ -250,13 +255,35 @@ body {
     transparent
   );
 }
+.retomarCompra {
+  position: absolute;
+  font-size: 10px;
+  /* color: rgb(255, 51, 0); */
+  color: black;
+  top: -8px;
+  left: 8px;
+  border: 2px solid rgb(61, 61, 6);
+  text-align: center;
+  border-radius: 6px;
+  background-color: rgb(248, 133, 104);
+  /*  background-color: #d4d0d0; */
+}
 .datoCarritoNombreProducto {
   margin: 7px;
   width: 235px;
 }
-.botonP {
+.botonBorrarTodo {
   padding: 4px;
   width: 100px;
+  border: 2px solid red;
+  color: red;
+  border-radius: 4px;
+  font-weight: 600;
+}
+.botonBorrarTodo:hover {
+  border: 2px solid rgb(19, 0, 0);
+  color: rgb(19, 0, 0);
+  background-color: rgb(252, 0, 0);
 }
 .divTotalyBorrar {
   margin-left: 60%;
@@ -266,8 +293,6 @@ body {
   background-color: #f3f1f1;
   min-height: 60vh;
   padding: 50px 100px;
-
-  background-color: #f3f1f1;
 
   border-right: 1px solid #bdb8b8;
   border-left: 1px solid #bdb8b8;
@@ -369,7 +394,8 @@ body {
   font-size: 18px;
 }
 .botonTerminarCompra {
-  margin: 10px;
+  /* margin: 10px ; */
+
   transition: 0.2s;
   padding: 4px;
   border-radius: 4px;
@@ -397,15 +423,14 @@ body {
   text-align: center;
   line-height: 45px;
 }
-/* .divImg {
-  border: 1px solid rgb(191, 194, 191);
-  border-bottom: 2px solid rgb(191, 194, 191);
+/* .divRelativo {
+  width: 230px !important;
 } */
 .maxImg {
   max-width: 600px;
 }
 .continuarMiCompra {
-  margin-left: 25px;
+  margin-left: 57px;
 }
 
 /*---------------------------------------------------------------------------------------------------*/

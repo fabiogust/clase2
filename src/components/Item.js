@@ -11,7 +11,11 @@ function Item({ producto }) {
   return (
     <>
       <div className="divImg">
-        <img className="imgDivImg" src={imagen} />
+        <img
+          className="imgDivImg"
+          src={imagen}
+          alt={`ERROR AL CARGAR IMG DE: ${nombre}`}
+        />
       </div>
       <div className="margen">{nombre}</div>
       <div className="margen">{"$ " + precio}</div>

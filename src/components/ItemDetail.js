@@ -53,7 +53,7 @@ function ItemDetail({ detalle, onSalir }) {
           <div className="margen">Color: {detalle.color}</div>
           <div className="margen ">{"$ " + detalle.precio}</div>
 
-          {cantidadAgregada == 0 ? contador() : compra()}
+          {cantidadAgregada === 0 ? contador() : compra()}
 
           <NavLink to={""} activeClassName="" className="">
             <button

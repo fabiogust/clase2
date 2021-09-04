@@ -13,7 +13,7 @@ import ItemDetail from "./ItemDetail";
 import Loading from "./Loading";
 
 function ContainerItems() {
-  const { categoryId, id } = useParams();
+  const { categoryId } = useParams();
   const [productos, setProductos] = useState([]);
   const [categoriaActual, setCategoriaActual] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -26,10 +26,6 @@ function ContainerItems() {
     itemCollection
       .get()
       .then((querySnapshot) => {
-        if (querySnapshot.size === 0) {
-          console.log("No items");
-        }
-
         setProductos(
           querySnapshot.docs.map((document) => ({
             id: document.id,
@@ -37,7 +33,7 @@ function ContainerItems() {
           }))
         );
       })
-      .catch((error) => console.log(error))
+      .catch((error) => alert("Ocurrio un error " + error))
       .finally(() => setLoading(false));
   }, []);
 
@@ -60,7 +56,7 @@ function ContainerItems() {
           }))
         )
       )
-      .catch((err) => console.log("err", err));
+      .catch((err) => alert("Ocurrio un error " + err));
   }, [categoryId]);
 
   function todos() {
@@ -91,7 +87,7 @@ function ContainerItems() {
   return (
     <>
       {loading && <Loading />}
-      {categoryId == undefined ? todos() : seleccion()}
+      {categoryId === undefined ? todos() : seleccion()}
       {detail()}
     </>
   );

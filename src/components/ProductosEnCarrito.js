@@ -54,7 +54,6 @@ function ProductosEnCarrito({ clase }) {
     orders
       .add(newOrder)
       .then((response) => {
-        console.log("response", response);
         productos.forEach(({ detalle, cantidad }) => {
           const docRef = db
             .collection("productosDeIndumentaria")
@@ -64,7 +63,7 @@ function ProductosEnCarrito({ clase }) {
         batch.commit();
         setOrderCreatedId(response.id);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => alert("Ocurrio un error " + error));
 
     removeTodo();
   };
@@ -89,7 +88,7 @@ function ProductosEnCarrito({ clase }) {
     setConfirmEmail(e.target.value);
   };
   const validarEmail = () => {
-    if (confirmEmail == usuario.emailCliente) {
+    if (confirmEmail === usuario.emailCliente) {
       return true;
     } else {
       return false;
@@ -156,7 +155,7 @@ function ProductosEnCarrito({ clase }) {
     <>
       <div className={clase}>
         {mostrarProductos()}
-        {valorTotal() != 0 && match && inputDatosCliente()}
+        {valorTotal() !== 0 && match && inputDatosCliente()}
         {orderCreatedId != null && compraTerminada()}
       </div>
     </>

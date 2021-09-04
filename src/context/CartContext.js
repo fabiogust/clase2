@@ -6,7 +6,7 @@ export const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
   let prod = [];
-  if (recuperarLoGuardadoEnLocalStorage() != null) {
+  if (recuperarLoGuardadoEnLocalStorage() !== null) {
     prod = recuperarLoGuardadoEnLocalStorage();
   }
 
@@ -14,7 +14,7 @@ const CartProvider = ({ children }) => {
 
   const carritoLength = () => {
     return (
-      productos.length != 0 && (
+      productos.length !== 0 && (
         <span className="carritoLength">
           {productos.reduce(
             (acumulador, iterator) => (acumulador += iterator.cantidad),
@@ -35,12 +35,12 @@ const CartProvider = ({ children }) => {
   };
 
   const agregarProducto = (detalle, cantidad) => {
-    if (recuperarLoGuardadoEnLocalStorage() != null) {
+    if (recuperarLoGuardadoEnLocalStorage() !== null) {
       let prodf = recuperarLoGuardadoEnLocalStorage();
       setProductos(prodf);
     }
 
-    if (productos.length != 0) {
+    if (productos.length !== 0) {
       for (let iterator of productos) {
         if (iterator.detalle.id === detalle.id) {
           productos[productos.indexOf(iterator)].cantidad =
@@ -89,8 +89,20 @@ const CartProvider = ({ children }) => {
   }
 
   function removeTodo() {
-    setProductos([]);
+    let productoSinCantidad = productos.filter((producto) => {
+      if (producto.cantidad === 0) {
+        return producto;
+      } else {
+        return null;
+      }
+    });
+
+    setProductos(productoSinCantidad);
     localStorage.clear();
+    localStorage.setItem(
+      "guardadoEnLocalStorage",
+      JSON.stringify(productoSinCantidad)
+    );
   }
 
   function nuevoItem(detalle, cantidad) {
@@ -131,9 +143,9 @@ const CartProvider = ({ children }) => {
                   </div>
                   <div className="divBotonS-R">
                     <div>
-                      {p.cantidad == 0 ? " " : " $" + p.detalle.precio}
-                      {p.cantidad == 0 ? " " : " X " + p.cantidad + " = "}
-                      {p.cantidad == 0
+                      {p.cantidad === 0 ? " " : " $" + p.detalle.precio}
+                      {p.cantidad === 0 ? " " : " X " + p.cantidad + " = "}
+                      {p.cantidad === 0
                         ? " "
                         : " $" + p.detalle.precio * p.cantidad}
                     </div>
@@ -142,7 +154,7 @@ const CartProvider = ({ children }) => {
                         className="botonS-R menos"
                         onClick={() => removeItem(p)}
                       >
-                        {p.cantidad == 0 ? `ELIMINAR ESTE PRODUCTO` : " - "}
+                        {p.cantidad === 0 ? `ELIMINAR ESTE PRODUCTO` : " - "}
                       </button>
                       <button
                         className="botonS-R mas"
@@ -157,21 +169,39 @@ const CartProvider = ({ children }) => {
             );
           })}
         </div>
-        {productos.length == 0 ? (
+        {productos.length === 0 ? (
           sinProductos()
         ) : (
           <div className="divTotalyBorrar">
             <div className="margen">{" Total: $" + valorTotal()}</div>
-            <div>
-              <button className="botonHover margen botonP" onClick={removeTodo}>
-                Borrar todo
-              </button>
-            </div>
+            <div>{validarBotonBorrarTodo()}</div>
           </div>
         )}
       </div>
     );
   };
+
+  const botonDeBorrarTodo = () => {
+    return (
+      <button className=" margen botonBorrarTodo" onClick={removeTodo}>
+        Borrar todo
+      </button>
+    );
+  };
+
+  const validarBotonBorrarTodo = () => {
+    if (
+      (JSON.parse(localStorage.getItem("guardadoEnLocalStorage")).length !==
+        0 &&
+        valorTotal() === 0) ||
+      valorTotal() === undefined
+    ) {
+      return null;
+    } else if (valorTotal() !== 0) {
+      return botonDeBorrarTodo();
+    }
+  };
+
   function sinProductos() {
     return (
       <div className="carritoSinProductos">

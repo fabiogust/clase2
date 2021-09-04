@@ -24,13 +24,12 @@ function ItemDetailContainer() {
       .get()
       .then((doc) => {
         if (!doc.exists) {
-          console.log("No items");
           return;
         }
 
         setDetalle({ id: doc.id, ...doc.data() });
       })
-      .catch((error) => console.log(error))
+      .catch((error) => alert("Ocurrio un error " + error))
       .finally(setLoading(false));
   }, [id]);
 
