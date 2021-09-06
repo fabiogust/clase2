@@ -1,16 +1,17 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { createContext } from "react";
 import { NavLink } from "react-router-dom";
 
 export const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
-  let prod = [];
-  if (recuperarLoGuardadoEnLocalStorage() !== null) {
-    prod = recuperarLoGuardadoEnLocalStorage();
-  }
+  const [productos, setProductos] = useState([]);
 
-  const [productos, setProductos] = useState(prod);
+  useEffect(() => {
+    if (recuperarLoGuardadoEnLocalStorage() !== null) {
+      setProductos(recuperarLoGuardadoEnLocalStorage());
+    }
+  }, []);
 
   const carritoLength = () => {
     return (
@@ -64,28 +65,40 @@ const CartProvider = ({ children }) => {
     }
   };
 
-  //funciones del context |Aclaracion al useState c lo utilizo solo para hacer render de la cantidad, es random porque lo usan todos los item ----
-  const [c, setC] = useState("random");
-
   function removeItem(p) {
-    productos[productos.indexOf(p)].cantidad = Number(p.cantidad) - 1;
-    setProductos(productos);
-
-    if (productos[productos.indexOf(p)].cantidad < 0) {
-      productos.splice(productos.indexOf(p), 1);
-      setProductos(productos);
-      actualizarGuardadoEnStorage(productos);
+    let menos1 = productos.map((i) => {
+      if (i.detalle.id === p.detalle.id) {
+        let itemMenos1 = { detalle: p.detalle, cantidad: p.cantidad - 1 };
+        return itemMenos1;
+      } else {
+        return i;
+      }
+    });
+    for (const i of menos1) {
+      if (i.cantidad < 0) {
+        menos1.splice(menos1.indexOf(i), 1);
+      }
     }
-    setC(Math.random());
-    actualizarGuardadoEnStorage(productos);
+
+    setProductos(menos1);
+    actualizarGuardadoEnStorage(menos1);
   }
 
   function masUnItem(p) {
-    productos[productos.indexOf(p)].cantidad =
-      p.cantidad >= p.detalle.stock ? p.detalle.stock : Number(p.cantidad) + 1;
-    setProductos(productos);
-    actualizarGuardadoEnStorage(productos);
-    setC(Math.random());
+    let mas1 = productos.map((i) => {
+      if (i.detalle.id === p.detalle.id) {
+        let cantidadEnItem =
+          p.cantidad >= p.detalle.stock
+            ? p.detalle.stock
+            : Number(p.cantidad) + 1;
+        return { detalle: p.detalle, cantidad: cantidadEnItem };
+      } else {
+        return i;
+      }
+    });
+    console.log(`mas1`, mas1);
+    setProductos(mas1);
+    actualizarGuardadoEnStorage(mas1);
   }
 
   function removeTodo() {

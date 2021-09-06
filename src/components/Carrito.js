@@ -9,6 +9,10 @@ import ".././style.css";
 import { CartContext } from "../context/CartContext";
 
 function Carrito() {
+  if (JSON.parse(localStorage.getItem("guardadoEnLocalStorage")) == null) {
+    localStorage.setItem("guardadoEnLocalStorage", JSON.stringify([]));
+  }
+
   const { carritoLength, valorTotal } = useContext(CartContext);
 
   const retomarCompra = () => {

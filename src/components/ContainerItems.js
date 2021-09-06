@@ -34,6 +34,7 @@ function ContainerItems() {
         );
       })
       .catch((error) => alert("Ocurrio un error " + error))
+
       .finally(() => setLoading(false));
   }, []);
 

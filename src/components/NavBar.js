@@ -22,11 +22,7 @@ export default function NavBar() {
   let match = useRouteMatch("/carrito");
 
   const ulVistaRapida = () => {
-    if (match) {
-      return "";
-    } else {
-      return "ulVistaRapida";
-    }
+    return !match && "ulVistaRapida";
   };
 
   return (
@@ -93,7 +89,9 @@ export default function NavBar() {
                 <Carrito />
               </NavLink>
               <li className="liVistaRapida">
-                {carritoLength() != 0 && <ProductosEnCarrito clase={""} />}
+                {Number(carritoLength()) !== 0 && (
+                  <ProductosEnCarrito clase={""} />
+                )}
               </li>
             </ul>
           </li>

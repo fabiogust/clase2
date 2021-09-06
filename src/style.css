@@ -16,7 +16,6 @@
   transform: scale(1.03);
 }
 .hoverS:hover {
-  /* color: #fb00a2 !important; */
   transform: scale(1.01);
   z-index: 110;
   border-bottom: 2px solid #fb00a2;
@@ -67,12 +66,12 @@ body {
 
 .divImg {
   overflow: hidden;
-  /* height: 480px; */
   object-fit: cover;
 }
 .imgDivImg {
   width: 303px;
   height: 326px;
+  object-fit: cover;
 }
 .imgDivImgDetail {
   width: 303px;
@@ -116,8 +115,6 @@ body {
   padding: 3px;
 }
 
-/*------------------------*/
-
 .activeNavLink {
   transform: rotate(1.03) !important ;
 }
@@ -125,8 +122,6 @@ body {
 .logoNavLink {
   text-decoration: none;
 }
-
-/*------------------------*/
 
 .nav {
   display: flex;
@@ -193,7 +188,6 @@ body {
   list-style-type: none;
 }
 .ulVistaRapida:hover .liVistaRapida {
-  /* display: block; */
   display: flex;
   flex-direction: row-reverse;
   flex: 1 !important;
@@ -202,7 +196,6 @@ body {
   right: -79px;
   font-size: 16px;
   background-color: antiquewhite;
-  /* width: 500px; */
   border: 1px solid #bdb8b8;
 
   max-height: 333px;
@@ -225,18 +218,14 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* margin: 7px 0px; */
   margin: 7px 7px 7px 5px;
   width: 285px;
   padding-left: 15px;
   padding-right: 15px;
-  /*  transform: translateX(10px); */
   transform: translate(0px, -2px);
-
   border-top: 1px solid #bdb8b8;
   border-bottom: 1px solid #bdb8b8;
   box-sizing: border-box;
-  /*  background: linear-gradient(top, transparent, #ffffff99, transparent); */
   background: linear-gradient(
     0.25turn,
     transparent,
@@ -258,7 +247,6 @@ body {
 .retomarCompra {
   position: absolute;
   font-size: 10px;
-  /* color: rgb(255, 51, 0); */
   color: black;
   top: -8px;
   left: 8px;
@@ -266,7 +254,6 @@ body {
   text-align: center;
   border-radius: 6px;
   background-color: rgb(248, 133, 104);
-  /*  background-color: #d4d0d0; */
 }
 .datoCarritoNombreProducto {
   margin: 7px;
@@ -345,10 +332,6 @@ body {
   margin: 5px;
   border: 1px solid rgb(191, 194, 191);
 }
-/* .divImgEnCarrito {
-  display: flex;
-  align-items: center;
-} */
 
 .carritoSinProductos {
   display: flex;
@@ -394,7 +377,7 @@ body {
   font-size: 18px;
 }
 .botonTerminarCompra {
-  /* margin: 10px ; */
+  margin: 10px;
 
   transition: 0.2s;
   padding: 4px;
@@ -423,9 +406,7 @@ body {
   text-align: center;
   line-height: 45px;
 }
-/* .divRelativo {
-  width: 230px !important;
-} */
+
 .maxImg {
   max-width: 600px;
 }
@@ -433,7 +414,6 @@ body {
   margin-left: 57px;
 }
 
-/*---------------------------------------------------------------------------------------------------*/
 .carritoLength {
   display: inline-block;
   position: relative;
@@ -447,7 +427,6 @@ body {
   height: 12px;
   background-color: #d4d0d0;
   text-align: center;
-  /* font-weight: 600; */
 }
 
 .liSubUl {

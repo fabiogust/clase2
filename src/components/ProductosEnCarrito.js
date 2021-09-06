@@ -109,7 +109,7 @@ function ProductosEnCarrito({ clase }) {
         <h4 className="tituloDeDatosDeCompra">
           Complete los datos para finalizar su compra.
         </h4>
-        <div className="divDeInput">
+        <form className="divDeInput">
           <input
             className="inputDatos"
             name="nombreCliente"
@@ -137,7 +137,7 @@ function ProductosEnCarrito({ clase }) {
             type="email"
             placeholder="Repita su correo@correo.com"
           />
-        </div>
+        </form>
         <div>
           <button
             className="botonTerminarCompra"
