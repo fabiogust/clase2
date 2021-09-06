@@ -96,7 +96,7 @@ const CartProvider = ({ children }) => {
         return i;
       }
     });
-    console.log(`mas1`, mas1);
+
     setProductos(mas1);
     actualizarGuardadoEnStorage(mas1);
   }

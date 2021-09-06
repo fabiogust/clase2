@@ -73,7 +73,7 @@ function ProductosEnCarrito({ clase }) {
       <div className="divOrdenDeCompra">
         <h4 className="tituloOrdenDeCompra">GRACIAS POR SU COMPRA!</h4>
         <p className="parrafoOrdenDeCompra">
-          {usuario.nombreCliente} su orden de compra es:
+          {usuario.nombreCliente.toUpperCase()} su orden de compra por es:
         </p>
         <h5 className="keyOrdenDeCompra">{orderCreatedId}</h5>
       </div>
