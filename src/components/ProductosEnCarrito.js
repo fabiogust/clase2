@@ -26,7 +26,7 @@ function ProductosEnCarrito({ clase }) {
     emailCliente: "",
   });
 
-  const handleFinishPurchase = () => {
+  const finDeLaCompra = () => {
     const newItems = productos.filter(({ detalle, cantidad }) => {
       if (cantidad !== 0) {
         return {
@@ -142,7 +142,7 @@ function ProductosEnCarrito({ clase }) {
           <button
             className="botonTerminarCompra"
             disabled={habilitarBoton()}
-            onClick={handleFinishPurchase}
+            onClick={finDeLaCompra}
           >
             Terminar compra
           </button>

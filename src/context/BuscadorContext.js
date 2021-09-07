@@ -76,8 +76,8 @@ const BuscadorProvider = ({ children }) => {
   return (
     <BuscadorContext.Provider
       value={{
-        buscar: buscar,
-        renderBusqueda: renderBusqueda,
+        buscar,
+        renderBusqueda,
       }}
     >
       {loading && <Loading />}

@@ -239,12 +239,12 @@ const CartProvider = ({ children }) => {
   return (
     <CartContext.Provider
       value={{
-        agregarProducto: agregarProducto,
-        mostrarProductos: mostrarProductos,
-        carritoLength: carritoLength,
-        productos: productos,
-        valorTotal: valorTotal,
-        removeTodo: removeTodo,
+        agregarProducto,
+        mostrarProductos,
+        carritoLength,
+        productos,
+        valorTotal,
+        removeTodo,
       }}
     >
       {children}
